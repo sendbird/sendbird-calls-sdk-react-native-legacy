@@ -1,0 +1,100 @@
+{
+  "name": "@sendbird/calls-react-native",
+  "version": "0.1.0",
+  "description": "ReactNative Calls SDK",
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "files": [
+    "src",
+    "lib",
+    "android",
+    "ios",
+    "cpp",
+    "sendbird-calls-react-native.podspec",
+    "!lib/typescript/sample",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "scripts": {
+    "docs": "typedoc src/index.ts --excludeInternal --excludePrivate --excludeProtected",
+    "test": "jest",
+    "test:build": "yarn build && yarn clean",
+    "test:tsc": "tsc --noEmit",
+    "typescript": "tsc --noEmit",
+    "build": "bob build",
+    "clean": "del lib",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
+    "fix": "yarn fix:eslint && yarn fix:prettier",
+    "lint:eslint": "eslint src --ext ts,tsx -c ./.eslintrc.js",
+    "lint:prettier": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "fix:eslint": "eslint --fix src --ext ts,tsx -c ./.eslintrc.js",
+    "fix:prettier": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://github.com/sendbird/sendbird-calls-react-native.git",
+  "author": "Sendbird <support@sendbird.com> (https://sendbird.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sendbird/sendbird-calls-react-native.git/issues"
+  },
+  "homepage": "https://github.com/sendbird/sendbird-calls-react-native.git#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/jest": "^26.0.0",
+    "@types/react": "^18.0.12",
+    "@types/react-native": "^0.67.8",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "del-cli": "^4.0.1",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^26.0.1",
+    "pod-install": "^0.1.0",
+    "prettier": "^2.6.2",
+    "react": "17.0.2",
+    "react-native": "0.68.2",
+    "react-native-builder-bob": "^0.18.2",
+    "typedoc": "^0.22.16",
+    "typescript": "4.6.3",
+    "metro-react-native-babel-preset": "^0.67.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "jest": {
+    "preset": "react-native",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
+    ]
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
+}

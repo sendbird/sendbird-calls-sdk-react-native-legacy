@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ED1849E92854449D00354FA9 /* AVAudioSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1849E82854449D00354FA9 /* AVAudioSession+Extension.swift */; };
+		ED1849EB2854641600354FA9 /* RNSBDirectCallVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1849EA2854641600354FA9 /* RNSBDirectCallVideoView.swift */; };
+		ED1849ED2854644800354FA9 /* RNSBDirectCallVideoViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1849EC2854644800354FA9 /* RNSBDirectCallVideoViewManager.m */; };
+		ED1849EF2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1849EE2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift */; };
+		ED452A0028498CAC000D8CE8 /* CallsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4529FF28498CAC000D8CE8 /* CallsEvents.swift */; };
+		ED452A0328498CC9000D8CE8 /* BaseVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED452A0228498CC9000D8CE8 /* BaseVideoView.swift */; };
+		ED452A072849BC46000D8CE8 /* RNCallsInternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED452A062849BC46000D8CE8 /* RNCallsInternalError.swift */; };
+		ED5C6942282244D500E9904E /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C6941282244D500E9904E /* Promise.swift */; };
+		ED5C69472822680800E9904E /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C69462822680800E9904E /* Data+Extension.swift */; };
+		ED5C694928226FFA00E9904E /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C694828226FFA00E9904E /* String+Extension.swift */; };
+		ED5C694B2824BF3F00E9904E /* CallsModule+DirectCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5C694A2824BF3F00E9904E /* CallsModule+DirectCall.swift */; };
+		ED79CE2A28264C13007CC64F /* SendBirdCalls+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED79CE2928264C13007CC64F /* SendBirdCalls+Extension.swift */; };
+		ED895EC42806DBCF00980F59 /* RNSendbirdCalls.m in Sources */ = {isa = PBXBuildFile; fileRef = ED895EC32806DBCF00980F59 /* RNSendbirdCalls.m */; };
+		EDA31B0728645CE0003B2E95 /* MediaDeviceControlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA31B0628645CE0003B2E95 /* MediaDeviceControlProtocol.swift */; };
+		EDFE16892820F2C400D3E55C /* CallsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE16882820F2C400D3E55C /* CallsModule.swift */; };
+		EDFE168D2820F64E00D3E55C /* CallsModule+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE168C2820F64E00D3E55C /* CallsModule+Common.swift */; };
+		EDFE168F28212C2E00D3E55C /* CallsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE168E28212C2E00D3E55C /* CallsUtils.swift */; };
+		EDFE61D32858DE420055B413 /* CallsQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFE61D22858DE420055B413 /* CallsQueries.swift */; };
+		F4FF95D7245B92E800C19C63 /* RNSendbirdCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4FF95D6245B92E800C19C63 /* RNSendbirdCalls.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libRNSendbirdCalls.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSendbirdCalls.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED1849E82854449D00354FA9 /* AVAudioSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioSession+Extension.swift"; sourceTree = "<group>"; };
+		ED1849EA2854641600354FA9 /* RNSBDirectCallVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSBDirectCallVideoView.swift; sourceTree = "<group>"; };
+		ED1849EC2854644800354FA9 /* RNSBDirectCallVideoViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSBDirectCallVideoViewManager.m; sourceTree = "<group>"; };
+		ED1849EE2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSBDirectCallVideoViewManager.swift; sourceTree = "<group>"; };
+		ED4529FF28498CAC000D8CE8 /* CallsEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallsEvents.swift; sourceTree = "<group>"; };
+		ED452A0228498CC9000D8CE8 /* BaseVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVideoView.swift; sourceTree = "<group>"; };
+		ED452A062849BC46000D8CE8 /* RNCallsInternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCallsInternalError.swift; sourceTree = "<group>"; };
+		ED5C6941282244D500E9904E /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		ED5C69462822680800E9904E /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		ED5C694828226FFA00E9904E /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		ED5C694A2824BF3F00E9904E /* CallsModule+DirectCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallsModule+DirectCall.swift"; sourceTree = "<group>"; };
+		ED79CE2928264C13007CC64F /* SendBirdCalls+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SendBirdCalls+Extension.swift"; sourceTree = "<group>"; };
+		ED895EC32806DBCF00980F59 /* RNSendbirdCalls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNSendbirdCalls.m; sourceTree = "<group>"; };
+		EDA31B0628645CE0003B2E95 /* MediaDeviceControlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDeviceControlProtocol.swift; sourceTree = "<group>"; };
+		EDFE16882820F2C400D3E55C /* CallsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsModule.swift; sourceTree = "<group>"; };
+		EDFE168C2820F64E00D3E55C /* CallsModule+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallsModule+Common.swift"; sourceTree = "<group>"; };
+		EDFE168E28212C2E00D3E55C /* CallsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsUtils.swift; sourceTree = "<group>"; };
+		EDFE61D22858DE420055B413 /* CallsQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsQueries.swift; sourceTree = "<group>"; };
+		F4FF95D5245B92E700C19C63 /* RNSendbirdCalls-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNSendbirdCalls-Bridging-Header.h"; sourceTree = "<group>"; };
+		F4FF95D6245B92E800C19C63 /* RNSendbirdCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSendbirdCalls.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libRNSendbirdCalls.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				F4FF95D5245B92E700C19C63 /* RNSendbirdCalls-Bridging-Header.h */,
+				ED452A0128498CBB000D8CE8 /* Views */,
+				ED5C6945282267F000E9904E /* Extensions */,
+				ED5C6940282244B700E9904E /* Helpers */,
+				EDFE16872820F2B100D3E55C /* Modules */,
+				F4FF95D6245B92E800C19C63 /* RNSendbirdCalls.swift */,
+				ED895EC32806DBCF00980F59 /* RNSendbirdCalls.m */,
+				ED1849EA2854641600354FA9 /* RNSBDirectCallVideoView.swift */,
+				ED1849EE2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift */,
+				ED1849EC2854644800354FA9 /* RNSBDirectCallVideoViewManager.m */,
+				134814211AA4EA7D00B7C361 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ED452A0128498CBB000D8CE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ED452A0228498CC9000D8CE8 /* BaseVideoView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED5C6940282244B700E9904E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ED4529FF28498CAC000D8CE8 /* CallsEvents.swift */,
+				EDFE168E28212C2E00D3E55C /* CallsUtils.swift */,
+				ED5C6941282244D500E9904E /* Promise.swift */,
+				ED452A062849BC46000D8CE8 /* RNCallsInternalError.swift */,
+				EDA31B0628645CE0003B2E95 /* MediaDeviceControlProtocol.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ED5C6945282267F000E9904E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED5C69462822680800E9904E /* Data+Extension.swift */,
+				ED5C694828226FFA00E9904E /* String+Extension.swift */,
+				ED79CE2928264C13007CC64F /* SendBirdCalls+Extension.swift */,
+				ED1849E82854449D00354FA9 /* AVAudioSession+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EDFE16872820F2B100D3E55C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EDFE16882820F2C400D3E55C /* CallsModule.swift */,
+				EDFE168C2820F64E00D3E55C /* CallsModule+Common.swift */,
+				ED5C694A2824BF3F00E9904E /* CallsModule+DirectCall.swift */,
+				EDFE61D22858DE420055B413 /* CallsQueries.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* RNSendbirdCalls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNSendbirdCalls" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNSendbirdCalls;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libRNSendbirdCalls.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNSendbirdCalls" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B511DA1A9E6C8500147676 /* RNSendbirdCalls */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDFE61D32858DE420055B413 /* CallsQueries.swift in Sources */,
+				ED5C694928226FFA00E9904E /* String+Extension.swift in Sources */,
+				EDFE168D2820F64E00D3E55C /* CallsModule+Common.swift in Sources */,
+				ED895EC42806DBCF00980F59 /* RNSendbirdCalls.m in Sources */,
+				F4FF95D7245B92E800C19C63 /* RNSendbirdCalls.swift in Sources */,
+				ED452A072849BC46000D8CE8 /* RNCallsInternalError.swift in Sources */,
+				ED5C69472822680800E9904E /* Data+Extension.swift in Sources */,
+				EDFE16892820F2C400D3E55C /* CallsModule.swift in Sources */,
+				ED452A0028498CAC000D8CE8 /* CallsEvents.swift in Sources */,
+				EDA31B0728645CE0003B2E95 /* MediaDeviceControlProtocol.swift in Sources */,
+				ED1849EF2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift in Sources */,
+				ED79CE2A28264C13007CC64F /* SendBirdCalls+Extension.swift in Sources */,
+				EDFE168F28212C2E00D3E55C /* CallsUtils.swift in Sources */,
+				ED5C6942282244D500E9904E /* Promise.swift in Sources */,
+				ED1849ED2854644800354FA9 /* RNSBDirectCallVideoViewManager.m in Sources */,
+				ED452A0328498CC9000D8CE8 /* BaseVideoView.swift in Sources */,
+				ED1849E92854449D00354FA9 /* AVAudioSession+Extension.swift in Sources */,
+				ED1849EB2854641600354FA9 /* RNSBDirectCallVideoView.swift in Sources */,
+				ED5C694B2824BF3F00E9904E /* CallsModule+DirectCall.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNSendbirdCalls;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNSendbirdCalls-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../React/**",
+					"$(SRCROOT)/../../react-native/React/**",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = RNSendbirdCalls;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "RNSendbirdCalls-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNSendbirdCalls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNSendbirdCalls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}

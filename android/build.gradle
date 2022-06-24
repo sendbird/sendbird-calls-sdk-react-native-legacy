@@ -1,0 +1,116 @@
+import io.invertase.gradle.common.PackageJson
+
+buildscript {
+  // Buildscript is evaluated before everything else so we can"t use getExtOrDefault
+  def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["RNSendbirdCalls_kotlinVersion"]
+
+  if (project == rootProject) {
+    repositories {
+      google()
+      mavenCentral()
+    }
+
+    dependencies {
+      classpath("com.android.tools.build:gradle:7.0.4")
+      // noinspection DifferentKotlinGradleVersion
+      classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+  }
+}
+
+// if (isNewArchitectureEnabled()) {
+//   apply plugin: "com.facebook.react"
+// }
+plugins {
+  id ("kotlin-android")
+  id ("io.invertase.gradle.build") version "1.5"
+}
+
+def getDefaultProperty(name, asInteger) {
+  def value = project.properties["RNSendbirdCalls_" + name]
+  return asInteger ? value.toInteger() : value
+}
+
+//def isNewArchitectureEnabled() {
+//  return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+//}
+
+project.ext {
+  set("react-native", [
+    versions: [
+      android: [
+        minSdk    : getDefaultProperty("minSdkVersion", true),
+        targetSdk : getDefaultProperty("targetSdkVersion", true),
+        compileSdk: getDefaultProperty("compileSdkVersion", true),
+        kotlin: getDefaultProperty("kotlinVersion", false)
+      ]
+    ],
+  ])
+}
+
+android {
+  defaultConfig {
+    sourceSets {
+      main {
+        java.srcDirs += ["src/oldarch/java"]
+      }
+    }
+//     buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString())
+//     sourceSets {
+//       main {
+//         if (isNewArchitectureEnabled()) {
+//           java.srcDirs += ["src/newarch/java"]
+//         } else {
+//           java.srcDirs += ["src/oldarch/java"]
+//         }
+//       }
+//     }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+    }
+  }
+  lintOptions {
+    disable "GradleCompatible"
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+}
+
+repositories {
+  google()
+  mavenCentral()
+}
+
+dependencies {
+  // noinspection GradleDynamicVersion
+  implementation "com.facebook.react:react-native:+"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib:${ReactNative.ext.getVersion("android", "kotlin")}"
+  implementation("com.sendbird.sdk:sendbird-calls:1.9.0")
+}
+
+
+// if (isNewArchitectureEnabled()) {
+// https://reactnative.dev/docs/new-architecture-library-android#1-configure-codegen-in-your-gradle-file
+//   react {
+//     libraryName = "rnsendbirdcalls"
+//     codegenJavaPackageName = "com.sendbird.calls.reactnative"
+//     jsRootDir = file("../src/")
+//   }
+// }
+
+ReactNative.shared.applyPackageVersion()
+ReactNative.shared.applyDefaultExcludes()
+ReactNative.module.applyAndroidVersions()
+ReactNative.module.applyReactNativeDependency("api")
+rootProject.allprojects {
+  repositories {
+    maven {
+      url "https://repo.sendbird.com/public/maven"
+    }
+  }
+}

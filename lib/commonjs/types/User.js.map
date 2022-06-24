@@ -1,0 +1,1 @@
+{"version":3,"names":[],"sources":["User.ts"],"sourcesContent":["export interface User {\n  isActive: boolean;\n  userId: string;\n  metaData: Record<string, string>;\n  nickname: string;\n  profileUrl: string;\n}\n"],"mappings":""}
