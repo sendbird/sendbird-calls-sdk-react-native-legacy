@@ -107,7 +107,7 @@ The SDK requires system permissions. The following permissions allow the SDK to 
 
 - Camera
 - Microphone
-- Bluetooth
+- Bluetooth (Android)
 
 We recommend [`react-native-permissions`](https://github.com/zoontek/react-native-permissions) library
 
@@ -116,7 +116,7 @@ import Permissions, { PERMISSIONS } from 'react-native-permissions';
 
 const CALL_PERMISSIONS = Platform.select({
   android: [PERMISSIONS.ANDROID.CAMERA, PERMISSIONS.ANDROID.RECORD_AUDIO, PERMISSIONS.ANDROID.BLUETOOTH_CONNECT],
-  ios: [PERMISSIONS.IOS.CAMERA, PERMISSIONS.IOS.MICROPHONE, PERMISSIONS.IOS.BLUETOOTH_PERIPHERAL],
+  ios: [PERMISSIONS.IOS.CAMERA, PERMISSIONS.IOS.MICROPHONE],
   default: [],
 });
 

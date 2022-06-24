@@ -13,6 +13,7 @@ class CallsEvents {
     enum Event {
         case `default`(_ type: DefaultEventType)
         case directCall(_ type: DirectCallEventType)
+        case groupCall(_ type: GroupCallEventType)
         
         var name: String {
             switch self {
@@ -20,6 +21,8 @@ class CallsEvents {
                 return "sendbird.call.default"
             case .directCall:
                 return "sendbird.call.direct"
+            case .groupCall:
+                return "sendbird.call.group"
             }
         }
         
@@ -28,6 +31,8 @@ class CallsEvents {
             case let .default(type: type):
                 return "\(self.name).\(type.rawValue)"
             case let .directCall(type: type):
+                return "\(self.name).\(type.rawValue)"
+            case let .groupCall(type: type):
                 return "\(self.name).\(type.rawValue)"
             }
         }
@@ -51,6 +56,19 @@ class CallsEvents {
         case onCustomItemsUpdated
         case onCustomItemsDeleted
         case onUserHoldStatusChanged
+    }
+    
+    enum GroupCallEventType: String, CaseIterable {
+        case onDeleted
+        case onError
+        case onRemoteParticipantEntered
+        case onRemoteParticipantExited
+        case onRemoteParticipantStreamStarted
+        case onAudioDeviceChanged
+        case onRemoteVideoSettingsChanged
+        case onRemoteAudioSettingsChanged
+        case onCustomItemsUpdated
+        case onCustomItemsDeleted
     }
     
     static let shared = CallsEvents()
