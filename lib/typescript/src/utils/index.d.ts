@@ -1,4 +1,4 @@
-import type { DirectCallListener } from '@sendbird/calls-react-native';
+import type { DirectCallListener } from '../types';
 export declare const noop: () => void;
 export declare const noopDirectCallListener: DirectCallListener;
 export declare const noopRoomListener: {

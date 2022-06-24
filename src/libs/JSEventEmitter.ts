@@ -1,4 +1,4 @@
-import { Logger } from '@sendbird/calls-react-native';
+import { Logger } from '../utils/logger';
 
 type Listener = (...args: unknown[]) => void;
 type ListenerPool = Record<number, Listener>;

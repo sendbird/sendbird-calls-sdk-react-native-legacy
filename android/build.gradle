@@ -4,17 +4,15 @@ buildscript {
   // Buildscript is evaluated before everything else so we can"t use getExtOrDefault
   def kotlin_version = rootProject.ext.has("kotlinVersion") ? rootProject.ext.get("kotlinVersion") : project.properties["RNSendbirdCalls_kotlinVersion"]
 
-  if (project == rootProject) {
-    repositories {
-      google()
-      mavenCentral()
-    }
+  repositories {
+    google()
+    mavenCentral()
+  }
 
-    dependencies {
-      classpath("com.android.tools.build:gradle:7.0.4")
-      // noinspection DifferentKotlinGradleVersion
-      classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-    }
+  dependencies {
+    classpath("com.android.tools.build:gradle:7.0.4")
+    // noinspection DifferentKotlinGradleVersion
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
   }
 }
 
@@ -22,9 +20,12 @@ buildscript {
 //   apply plugin: "com.facebook.react"
 // }
 plugins {
-  id ("kotlin-android")
+  // NOTE: plugins refer only rootProject dependencies, so use apply plugin instead
+  // id ("kotlin-android")
   id ("io.invertase.gradle.build") version "1.5"
 }
+
+apply plugin: "kotlin-android"
 
 def getDefaultProperty(name, asInteger) {
   def value = project.properties["RNSendbirdCalls_" + name]

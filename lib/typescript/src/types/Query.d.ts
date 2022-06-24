@@ -1,4 +1,4 @@
-import { DirectCallEndResult, DirectCallUserRole, RoomState, RoomType } from '@sendbird/calls-react-native';
+import type { DirectCallEndResult, DirectCallUserRole, RoomState, RoomType } from '../types';
 export declare enum NativeQueryType {
     DIRECT_CALL_LOG = "DIRECT_CALL_LOG",
     ROOM_LIST = "ROOM_LIST"
