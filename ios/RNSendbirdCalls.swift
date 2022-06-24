@@ -59,8 +59,9 @@ extension RNSendbirdCalls {
     }
     override func supportedEvents() -> [String]! {
         return [
-            CallsEvents.Event.default(.onRinging).name,
-            CallsEvents.Event.directCall(.onConnected).name
+            CallsEvents.Event.default(nil).name,
+            CallsEvents.Event.directCall(nil).name,
+            CallsEvents.Event.groupCall(nil).name
         ]
     }
 }

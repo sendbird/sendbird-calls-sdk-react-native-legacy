@@ -11,9 +11,9 @@ import React
 
 class CallsEvents {
     enum Event {
-        case `default`(_ type: DefaultEventType)
-        case directCall(_ type: DirectCallEventType)
-        case groupCall(_ type: GroupCallEventType)
+        case `default`(_ type: DefaultEventType?)
+        case directCall(_ type: DirectCallEventType?)
+        case groupCall(_ type: GroupCallEventType?)
         
         var name: String {
             switch self {
@@ -29,11 +29,11 @@ class CallsEvents {
         var type: String {
             switch self {
             case let .default(type: type):
-                return "\(self.name).\(type.rawValue)"
+                return "\(self.name).\(type?.rawValue ?? "")"
             case let .directCall(type: type):
-                return "\(self.name).\(type.rawValue)"
+                return "\(self.name).\(type?.rawValue ?? "")"
             case let .groupCall(type: type):
-                return "\(self.name).\(type.rawValue)"
+                return "\(self.name).\(type?.rawValue ?? "")"
             }
         }
     }
