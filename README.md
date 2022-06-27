@@ -30,7 +30,7 @@ Sendbird Calls SDK for React-Native provides a module to make and receive voice 
 
 ### More about Sendbird Calls SDK for React-Native
 
-Find out more about Sendbird Calls for React-Native on [Calls SDK for React-Native doc](https://sendbird.com/docs/calls/v1/react-native/getting-started/about-calls-sdk).
+Find out more about Sendbird Calls for React-Native on Calls SDK for React-Native doc.
 
 <br />
 
@@ -149,12 +149,12 @@ In order to make and receive calls, authenticate the user with SendBird server w
 Register a VoIP push token by using the `SendbirdCalls.ios_registerVoIPPush()` method after authentication has completed.
 VoIP Push Notification will also enable receiving calls even when the app is in the background or terminated state.
 A valid APNS certificate also needs to be registered on the [Sendbird Dashboard](https://dashboard.sendbird.com/auth/signin): **Application** > **Settings** > **Notifications** > **Add certificate**.
-For more details on registering push tokens, refer to [Calls SDK for React-Native doc](https://sendbird.com/docs/calls/v1/react-native/guides/remote-notifications#2-remote-push-token-registration).
+For more details on registering push tokens, refer to Calls SDK for React-Native doc.
 
 > **NOTE**: In order to receive incoming calls to a user's device, you must implement either VoIP notifications or remote notifications.
 > If you want to register a APNS token, you can register APNS token by using `SendbirdCalls.registerPushToken()` method
 >
-> refer to [Calls SDK for iOS doc](https://sendbird.com/docs/calls/v1/ios/guides/notifications#2-understanding-the-differences).
+> refer to Calls SDK for iOS doc.
 
 #### Android
 
