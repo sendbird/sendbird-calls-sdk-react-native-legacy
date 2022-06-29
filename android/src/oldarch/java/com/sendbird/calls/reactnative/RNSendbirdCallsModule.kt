@@ -43,6 +43,12 @@ class RNSendbirdCallsModule(private val reactContext: ReactApplicationContext) :
     }
 
     @ReactMethod
+    override fun addDirectCallSound(type: String, fileName: String) = module.addDirectCallSound(type, fileName)
+    @ReactMethod
+    override fun removeDirectCallSound(type: String) = module.removeDirectCallSound(type)
+    @ReactMethod
+    override fun setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled: Boolean) = module.setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled)
+    @ReactMethod
     override fun getCurrentUser(promise: Promise) = module.getCurrentUser(promise)
     @ReactMethod
     override fun getOngoingCalls(promise: Promise) = module.getOngoingCalls(promise)

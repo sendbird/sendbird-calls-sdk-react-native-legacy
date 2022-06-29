@@ -1,5 +1,5 @@
 import type { CallOptions, DirectCallLogQueryParams, DirectCallProperties, RoomListQueryParams, SendbirdCallsJavascriptSpec, User } from '../types';
-import { NativeConstants, RoomType } from '../types';
+import { NativeConstants, RoomType, SoundType } from '../types';
 import { DirectCallLogListQuery, RoomListQuery } from './BridgedQuery';
 import { DirectCall } from './DirectCall';
 import NativeBinder from './NativeBinder';
@@ -74,6 +74,28 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
      * @since 1.0.0
      */
     protected getConstants: () => NativeConstants;
+    /**
+     * Adds sound used in DirectCall such as ringtone and some sound effects with its file name with extension
+     *
+     * @iOS bundle file name
+     * @Android res/raw file name
+     *
+     * @since 1.0.0
+     */
+    addDirectCallSound: (type: SoundType, fileName: string) => void;
+    /**
+     * Removes sound used in {@link DirectCall} with {@link SoundType} value.
+     *
+     * @since 1.0.0
+     */
+    removeDirectCallSound: (type: SoundType) => void;
+    /**
+     * Enables / disables dial sound used in {@link DirectCall} even when the device is in silent mode.
+     * Call this method right after {@link addDirectCallSound}.
+     *
+     * @since 1.0.0
+     */
+    setDirectCallDialingSoundOnWhenSilentOrVibrateMode: (enabled: boolean) => void;
     /**
      * Gets the current `User` from native
      * Returns the current `User`. If SendBirdCall is not authenticated, `null` will be returned.

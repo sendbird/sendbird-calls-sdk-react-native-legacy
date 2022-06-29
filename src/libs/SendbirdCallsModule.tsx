@@ -9,7 +9,7 @@ import type {
   SendbirdCallsJavascriptSpec,
   User,
 } from '../types';
-import { NativeConstants, NativeQueryType, RoomType } from '../types';
+import { NativeConstants, NativeQueryType, RoomType, SoundType } from '../types';
 import { noop } from '../utils';
 import { Logger } from '../utils/logger';
 import { DirectCallLogListQuery, RoomListQuery } from './BridgedQuery';
@@ -102,6 +102,42 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
   protected getConstants = (): NativeConstants => {
     // @ts-ignore
     return this.binder.nativeModule.getConstants?.() ?? { NATIVE_SDK_VERSION: '' };
+  };
+
+  /**
+   * Adds sound used in DirectCall such as ringtone and some sound effects with its file name with extension
+   *
+   * @iOS bundle file name
+   * @Android res/raw file name
+   *
+   * @since 1.0.0
+   */
+  public addDirectCallSound = (type: SoundType, fileName: string) => {
+    let name = fileName;
+    if (Platform.OS === 'android') {
+      const idx = fileName.lastIndexOf('.');
+      if (idx) name = fileName.slice(0, idx);
+    }
+    this.binder.nativeModule.addDirectCallSound(type, name);
+  };
+
+  /**
+   * Removes sound used in {@link DirectCall} with {@link SoundType} value.
+   *
+   * @since 1.0.0
+   */
+  public removeDirectCallSound = (type: SoundType) => {
+    this.binder.nativeModule.removeDirectCallSound(type);
+  };
+
+  /**
+   * Enables / disables dial sound used in {@link DirectCall} even when the device is in silent mode.
+   * Call this method right after {@link addDirectCallSound}.
+   *
+   * @since 1.0.0
+   */
+  public setDirectCallDialingSoundOnWhenSilentOrVibrateMode = (enabled: boolean) => {
+    this.binder.nativeModule.setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled);
   };
 
   /**

@@ -87,6 +87,18 @@ extension RNSendbirdCalls {
 
 // MARK: Common
 extension RNSendbirdCalls {
+    @objc func addDirectCallSound(_ type: String, _ fileName: String) {
+        module.addDirectCallSound(type, fileName)
+    }
+    
+    @objc func removeDirectCallSound(_ type: String) {
+        module.removeDirectCallSound(type)
+    }
+    
+    @objc func setDirectCallDialingSoundOnWhenSilentOrVibrateMode(_ enabled: Bool) {
+        module.setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled)
+    }
+    
     @objc func initialize(_ appId: String) -> Bool {
         return module.initialize(appId)
     }

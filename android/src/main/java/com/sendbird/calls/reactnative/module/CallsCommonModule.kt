@@ -11,6 +11,27 @@ import com.sendbird.calls.reactnative.module.listener.CallsGroupCallListener
 import com.sendbird.calls.reactnative.utils.CallsUtils
 
 class CallsCommonModule(private val root: CallsModule): CommonModule {
+    override fun addDirectCallSound(type: String, fileName: String) {
+        Log.d(CallsModule.NAME, "[CommonModule] addDirectCallSound($type, $fileName)")
+        val soundType = SendBirdCall.SoundType.valueOf(type)
+        val resourceId = root.reactContext.resources.getIdentifier(fileName, "raw", root.reactContext.packageName)
+        if (resourceId != 0) {
+            Log.d(CallsModule.NAME, "[CommonModule] addDirectCallSound resource $resourceId")
+            SendBirdCall.Options.addDirectCallSound(soundType, resourceId)
+        }
+    }
+
+    override fun removeDirectCallSound(type: String) {
+        Log.d(CallsModule.NAME, "[CommonModule] removeDirectCallSound($type)")
+        val soundType = SendBirdCall.SoundType.valueOf(type)
+        SendBirdCall.Options.removeDirectCallSound(soundType)
+    }
+
+    override fun setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled: Boolean) {
+        Log.d(CallsModule.NAME, "[CommonModule] setDirectCallDialingSoundOnWhenSilentOrVibrateMode($enabled)")
+        SendBirdCall.Options.setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled)
+    }
+
     override fun getCurrentUser(promise: Promise) {
         Log.d(CallsModule.NAME, "[CommonModule] getCurrentUser()")
         SendBirdCall.currentUser

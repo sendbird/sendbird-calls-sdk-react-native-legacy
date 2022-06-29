@@ -20,6 +20,11 @@ class CallsModule(val reactContext: ReactApplicationContext) : CallsModuleStruct
     val queries = CallsQueries(this)
 
     fun invalidate(handler: CompletionHandler?) {
+        SendBirdCall.Options.removeDirectCallSound(SendBirdCall.SoundType.RINGING)
+        SendBirdCall.Options.removeDirectCallSound(SendBirdCall.SoundType.DIALING)
+        SendBirdCall.Options.removeDirectCallSound(SendBirdCall.SoundType.RECONNECTED)
+        SendBirdCall.Options.removeDirectCallSound(SendBirdCall.SoundType.RECONNECTING)
+
         if(initialized) {
             Log.d(NAME, "[CallsModule] invalidate()")
             SendBirdCall.removeAllListeners()
@@ -43,6 +48,9 @@ class CallsModule(val reactContext: ReactApplicationContext) : CallsModuleStruct
     }
 
     /** Common module interface **/
+    override fun addDirectCallSound(type: String, fileName: String) = commonModule.addDirectCallSound(type, fileName)
+    override fun removeDirectCallSound(type: String) = commonModule.removeDirectCallSound(type)
+    override fun setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled: Boolean) = commonModule.setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled)
     override fun getCurrentUser(promise: Promise) = commonModule.getCurrentUser(promise)
     override fun getOngoingCalls(promise: Promise) = commonModule.getOngoingCalls(promise)
     override fun getDirectCall(callId: String, promise: Promise) = commonModule.getDirectCall(callId, promise)

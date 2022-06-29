@@ -11,6 +11,10 @@ import SendBirdCalls
 import PushKit
 
 protocol CallsCommonModuleProtocol {
+    func addDirectCallSound(_ type: String, _ fileName: String)
+    func removeDirectCallSound(_ type: String)
+    func setDirectCallDialingSoundOnWhenSilentOrVibrateMode(_ enabled: Bool)
+    
     func getCurrentUser(_ promise: Promise)
     func getOngoingCalls(_ promise: Promise)
     func getDirectCall(_ callIdOrUUID: String, _ promise: Promise)
@@ -30,6 +34,20 @@ protocol CallsCommonModuleProtocol {
 }
 
 class CallsCommonModule: CallsBaseModule, CallsCommonModuleProtocol {
+    func addDirectCallSound(_ type: String, _ fileName: String) {
+        guard let soundType = SoundType(fromString: type) else { return }
+        SendBirdCall.addDirectCallSound(fileName, forType: soundType)
+    }
+    
+    func removeDirectCallSound(_ type: String) {
+        guard let soundType = SoundType(fromString: type) else { return }
+        SendBirdCall.removeDirectCallSound(forType: soundType)
+    }
+    
+    func setDirectCallDialingSoundOnWhenSilentOrVibrateMode(_ enabled: Bool) {
+        SendBirdCall.setDirectCallDialingSoundOnWhenSilentMode(isEnabled: enabled)
+    }
+    
     func getCurrentUser(_ promise: Promise) {
         DispatchQueue.main.async {
             guard let user = SendBirdCall.currentUser else {

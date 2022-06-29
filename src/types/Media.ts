@@ -1,5 +1,12 @@
 import type { AVAudioSessionPort, RouteChangeReason } from './Platform';
 
+export enum SoundType {
+  DIALING = 'DIALING',
+  RINGING = 'RINGING',
+  RECONNECTING = 'RECONNECTING',
+  RECONNECTED = 'RECONNECTED',
+}
+
 export enum AudioDeviceType {
   EARPIECE = 'EARPIECE',
   SPEAKERPHONE = 'SPEAKERPHONE',

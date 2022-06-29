@@ -44,6 +44,16 @@ RCT_EXTERN_METHOD(queryRelease
 
 
 // MARK: - SendbirdCalls: Common
+RCT_EXTERN_METHOD(addDirectCallSound
+                  : (NSString *)type
+                  : (NSString *)fileName)
+
+RCT_EXTERN_METHOD(removeDirectCallSound
+                  : (NSString *)type)
+
+RCT_EXTERN_METHOD(setDirectCallDialingSoundOnWhenSilentOrVibrateMode
+                  : (BOOL *)enabled)
+
 RCT_EXTERN_METHOD(initialize
                   : (NSString *)appId)
 

@@ -40,6 +40,11 @@ class CallsModule: SendBirdCallDelegate {
     }
     
     func invalidate() {
+        SendBirdCall.removeDirectCallSound(forType: .ringing)
+        SendBirdCall.removeDirectCallSound(forType: .dialing)
+        SendBirdCall.removeDirectCallSound(forType: .reconnected)
+        SendBirdCall.removeDirectCallSound(forType: .reconnecting)
+        
         if(initialized){
             SendBirdCall.deauthenticate(completionHandler: nil)
             SendBirdCall.removeAllDelegates()
@@ -58,6 +63,18 @@ class CallsModule: SendBirdCallDelegate {
 
 // MARK: CommonModule extension
 extension CallsModule: CallsCommonModuleProtocol {
+    func addDirectCallSound(_ type: String, _ fileName: String) {
+        commonModule.addDirectCallSound(type, fileName)
+    }
+    
+    func removeDirectCallSound(_ type: String) {
+        commonModule.removeDirectCallSound(type)
+    }
+    
+    func setDirectCallDialingSoundOnWhenSilentOrVibrateMode(_ enabled: Bool) {
+        commonModule.setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled)
+    }
+    
     func getCurrentUser(_ promise: Promise) {
         commonModule.getCurrentUser(promise)
     }

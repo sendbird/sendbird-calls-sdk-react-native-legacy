@@ -3,6 +3,7 @@ import type { NativeModule, TurboModule } from 'react-native';
 import { BridgedQuery } from '../libs/BridgedQuery';
 import type { CallOptions, DirectCallLog, DirectCallProperties } from './Call';
 import type { AudioDevice, VideoDevice } from './Media';
+import { SoundType } from './Media';
 import {
   DirectCallLogQueryParams,
   NativeQueryCreator,
@@ -26,6 +27,10 @@ export type NativeConstants = {
 export interface NativeCommonModule {
   applicationId: string;
   currentUser: User | null;
+
+  addDirectCallSound(type: SoundType, fileName: string): void;
+  removeDirectCallSound(type: SoundType): void;
+  setDirectCallDialingSoundOnWhenSilentOrVibrateMode(enabled: boolean): void;
 
   getCurrentUser(): Promise<User | null>;
   getOngoingCalls(): Promise<DirectCallProperties[]>;

@@ -9,6 +9,38 @@
 import UIKit
 import SendBirdCalls
 
+// MARK: SendBirdCalls.SoundType
+extension SendBirdCalls.SoundType {
+    var asString: String {
+        switch self {
+        case .dialing:
+            return "DIALING"
+        case .ringing:
+            return "RINGING"
+        case .reconnecting:
+            return "RECONNECTING"
+        case .reconnected:
+            return "RECONNECTED"
+        @unknown default:
+            fatalError()
+        }
+    }
+    init?(fromString: String) {
+        switch fromString {
+        case "DIALING":
+            self = .dialing
+        case "RINGING":
+            self = .ringing
+        case "RECONNECTING":
+            self = .reconnecting
+        case "RECONNECTED":
+            self = .reconnected
+        default:
+            return nil
+        }
+    }
+}
+
 // MARK: SendBirdCalls.Participant.State
 extension SendBirdCalls.Participant.State {
     var asString: String {
