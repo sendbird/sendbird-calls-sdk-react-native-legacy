@@ -1,5 +1,11 @@
 import type { AVAudioSessionPort, RouteChangeReason } from './Platform';
 
+export interface BaseVideoViewProps {
+  android_zOrderMediaOverlay?: boolean;
+  resizeMode?: 'contain' | 'cover' | 'center';
+  mirror?: boolean;
+}
+
 export enum SoundType {
   DIALING = 'DIALING',
   RINGING = 'RINGING',

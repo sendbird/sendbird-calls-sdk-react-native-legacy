@@ -1,14 +1,11 @@
 import type { LocalParticipantMethods, ParticipantProperties, RoomListener } from '../types';
 import type NativeBinder from './NativeBinder';
-import { InternalEvents } from './Room';
-export declare class LocalParticipant implements ParticipantProperties, LocalParticipantMethods {
+import type { InternalEvents } from './Room';
+export declare class Participant implements ParticipantProperties {
     /** @internal **/
-    static get(binder: NativeBinder, internalEvents: InternalEvents<RoomListener>, props: ParticipantProperties | null, roomId: string): LocalParticipant | null;
-    constructor(binder: NativeBinder, internalEvents: InternalEvents<RoomListener>, props: ParticipantProperties, roomId: string);
-    private _binder;
-    private _props;
-    private _internalEvents;
-    private _roomId;
+    static get(props: ParticipantProperties | null, _binder?: NativeBinder, _internalEvents?: InternalEvents<RoomListener>, _roomId?: string): Participant | null;
+    constructor(props: ParticipantProperties);
+    protected _props: ParticipantProperties;
     private _updateInternal;
     get participantId(): string;
     get user(): import("../types").User;
@@ -19,6 +16,14 @@ export declare class LocalParticipant implements ParticipantProperties, LocalPar
     get isAudioEnabled(): boolean;
     get isVideoEnabled(): boolean;
     get updatedAt(): number;
+}
+export declare class LocalParticipant extends Participant implements LocalParticipantMethods {
+    /** @internal **/
+    static get(props: ParticipantProperties | null, binder: NativeBinder, internalEvents: InternalEvents<RoomListener>, roomId: string): LocalParticipant | null;
+    constructor(props: ParticipantProperties, binder: NativeBinder, internalEvents: InternalEvents<RoomListener>, roomId: string);
+    private _binder;
+    private _internalEvents;
+    private _roomId;
     /**
      * Mutes the audio of the local user.
      * Will trigger {@link RoomListener.onRemoteAudioSettingsChanged} method of remote participants.

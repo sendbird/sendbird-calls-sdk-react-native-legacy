@@ -14,6 +14,8 @@
 
 @interface RCT_EXTERN_REMAP_MODULE(RNSBDirectCallVideoView, RNSBDirectCallVideoViewManager, RCTViewManager)
 
+RCT_EXPORT_VIEW_PROPERTY(mirror, BOOL);
+RCT_EXPORT_VIEW_PROPERTY(resizeMode, NSString);
 RCT_EXPORT_VIEW_PROPERTY(viewType, NSString);
 RCT_EXPORT_VIEW_PROPERTY(callId, NSString);
 

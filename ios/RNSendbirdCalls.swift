@@ -142,6 +142,18 @@ extension RNSendbirdCalls {
     @objc func dial(_ calleeId: String, _ isVideoCall: Bool, _ options: [String: Any], _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
         module.dial(calleeId, isVideoCall, options, Promise(resolve, reject))
     }
+    
+    @objc func fetchRoomById(_ roomId: String, _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
+        module.fetchRoomById(roomId, Promise(resolve, reject))
+    }
+    
+    @objc func getCachedRoomById(_ roomId: String, _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
+        module.getCachedRoomById(roomId, Promise(resolve, reject))
+    }
+    
+    @objc func createRoom(_ type: String, _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
+        module.createRoom(type, Promise(resolve, reject))
+    }
 }
 
 // MARK: DirectCall
@@ -160,6 +172,17 @@ extension RNSendbirdCalls {
     
     @objc func updateRemoteVideoView(_ callId: String, _ videoViewId: NSNumber) {
         module.updateRemoteVideoView(callId, videoViewId)
+    }
+}
+
+// MARK: GroupCall
+extension RNSendbirdCalls {
+    @objc func enter(_ roomId: String, _ options: [String: Any], _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
+        module.enter(roomId, options, Promise(resolve, reject))
+    }
+    
+    @objc func exit(_ roomId: String) {
+        module.exit(roomId)
     }
 }
 

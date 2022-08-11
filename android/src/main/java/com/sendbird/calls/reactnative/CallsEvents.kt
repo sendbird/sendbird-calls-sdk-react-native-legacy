@@ -71,17 +71,6 @@ class CallsEvents {
                 })
         }
 
-        fun sendEvent(reactContext: ReactContext, event: String, eventType: String, data: List<*>) {
-            Log.d(CallsModule.NAME, "[CallsEvents] sendEvent() $event++$eventType")
-
-            reactContext
-                .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
-                .emit(event, Arguments.createMap().apply {
-                    putString("eventType", eventType)
-                    CallsUtils.insertMap(this, "data", data)
-                })
-        }
-
         fun sendEvent(reactContext: ReactContext, event: String, eventType: String, data: WritableMap, additionalData: Any) {
             Log.d(CallsModule.NAME, "[CallsEvents] sendEvent() $event++$eventType")
 

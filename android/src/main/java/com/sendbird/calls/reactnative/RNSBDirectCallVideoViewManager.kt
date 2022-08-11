@@ -9,6 +9,21 @@ class RNSBDirectCallVideoViewManager(private val reactContext: ReactContext) : S
     override fun getName() = NAME
     override fun createViewInstance(context: ThemedReactContext) = RNSBDirectCallVideoView(context)
 
+    @ReactProp(name = "resizeMode")
+    fun setResizeMode(view: RNSBDirectCallVideoView, mode: String) {
+        view.setResizeMode(mode)
+    }
+
+    @ReactProp(name = "zOrderMediaOverlay")
+    fun setZOrderMediaOverlay(view: RNSBDirectCallVideoView, overlay: Boolean) {
+        view.setZOrderMediaOverlay(overlay)
+    }
+
+    @ReactProp(name = "mirror")
+    fun setMirror(view: RNSBDirectCallVideoView, enabled: Boolean) {
+        view.setMirror(enabled)
+    }
+
     @ReactProp(name = "viewType")
     fun setViewType(view: RNSBDirectCallVideoView, type: String) {
         val viewType = ViewType.valueOf(type.uppercase())
@@ -18,11 +33,6 @@ class RNSBDirectCallVideoViewManager(private val reactContext: ReactContext) : S
     @ReactProp(name = "callId")
     fun setCallId(view: RNSBDirectCallVideoView, callId: String) {
         view.setCallId(callId)
-    }
-
-    @ReactProp(name = "zOrderMediaOverlay")
-    fun setZOrderMediaOverlay(view: RNSBDirectCallVideoView, overlay: Boolean) {
-        view.setZOrderMediaOverlay(overlay)
     }
 
     companion object {

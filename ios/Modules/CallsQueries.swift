@@ -153,6 +153,7 @@ class CallsQueries: NSObject {
                     promise.resolve([
                         "hasNext": query.hasNext,
                         "result": list.map {
+                            $0.addDelegate(GroupCallDelegate.get($0), identifier: $0.roomId)
                             CallsUtils.convertRoomToDict($0)
                         }
                     ])

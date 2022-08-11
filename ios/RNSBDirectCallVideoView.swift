@@ -36,6 +36,8 @@ class RNSBDirectCallVideoView: BaseVideoView {
     
     
     override func didSetProps(_ changedProps: [String]!) {
+        super.didSetProps(changedProps)
+        
         if changedProps.contains("viewType") {
             setViewType()
         }

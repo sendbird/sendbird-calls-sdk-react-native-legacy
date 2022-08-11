@@ -38,7 +38,7 @@ class CallsDirectCallModule: CallsBaseModule, CallsDirectCallModuleProtocol {
                 promise.resolve()
             }
         } else {
-            promise.reject(RNCallsInternalError.notFoundDirectCall("directCall/accept"))
+            promise.reject(RNCallsInternalError.notFoundDirectCall("directCall/end"))
         }
     }
     
@@ -71,7 +71,7 @@ extension CallsDirectCallModule {
                 }
             }
         } else {
-            promise.reject(RNCallsInternalError.notFoundDirectCall("directCall/accept"))
+            promise.reject(RNCallsInternalError.notFoundDirectCall("directCall/switchCamera"))
         }
     }
     
@@ -103,7 +103,7 @@ extension CallsDirectCallModule {
         }
     }
     func selectVideoDevice(_ type: String, _ callId: String, _ device: [String: String], _ promise: Promise) {
-        let from = "directCall/accept"
+        let from = "directCall/selectVideoDevice"
         guard let deviceId = device["deviceId"], let _ = device["position"] else {
             return promise.reject(RNCallsInternalError.invalidParams(from))
         }

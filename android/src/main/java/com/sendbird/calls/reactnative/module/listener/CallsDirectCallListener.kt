@@ -9,7 +9,7 @@ import com.sendbird.calls.reactnative.extension.asString
 import com.sendbird.calls.reactnative.module.CallsModule
 import com.sendbird.calls.reactnative.utils.CallsUtils
 
-class CallsDirectCallListener(private val root: CallsModule,): DirectCallListener() {
+class CallsDirectCallListener(private val root: CallsModule): DirectCallListener() {
     override fun onAudioDeviceChanged(
         call: DirectCall,
         currentAudioDevice: AudioDevice?,
@@ -42,7 +42,9 @@ class CallsDirectCallListener(private val root: CallsModule,): DirectCallListene
             CallsEvents.EVENT_DIRECT_CALL,
             CallsEvents.TYPE_DIRECT_CALL_ON_CUSTOM_ITEMS_DELETED,
             CallsUtils.convertDirectCallToJsMap(call),
-            deletedKeys
+            Arguments.createMap().apply {
+                putArray("deletedKeys", Arguments.fromList(deletedKeys))
+            }
         )
     }
 
@@ -52,7 +54,9 @@ class CallsDirectCallListener(private val root: CallsModule,): DirectCallListene
             CallsEvents.EVENT_DIRECT_CALL,
             CallsEvents.TYPE_DIRECT_CALL_ON_CUSTOM_ITEMS_UPDATED,
             CallsUtils.convertDirectCallToJsMap(call),
-            updatedKeys
+            Arguments.createMap().apply {
+                putArray("updatedKeys", Arguments.fromList(updatedKeys))
+            }
         )
     }
 
@@ -143,5 +147,13 @@ class CallsDirectCallListener(private val root: CallsModule,): DirectCallListene
                 putBoolean("isUserOnHold", isUserOnHold)
             }
         )
+    }
+
+    companion object {
+        var shared: CallsDirectCallListener? = null
+        fun get(root: CallsModule): CallsDirectCallListener = shared ?: run {
+            shared = CallsDirectCallListener(root)
+            return shared as CallsDirectCallListener
+        }
     }
 }

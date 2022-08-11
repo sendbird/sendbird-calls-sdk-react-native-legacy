@@ -165,7 +165,7 @@ class CallsCommonModule(private val root: CallsModule): CommonModule {
                 promise.rejectCalls(it)
             }
             call?.let {
-                it.setListener(CallsDirectCallListener(root))
+                it.setListener(CallsDirectCallListener.get(root))
                 promise.resolve(CallsUtils.convertDirectCallToJsMap(it))
             }
         }
@@ -179,7 +179,7 @@ class CallsCommonModule(private val root: CallsModule): CommonModule {
                 promise.rejectCalls(it)
             }
             room?.let {
-                it.addListener(it.roomId, CallsGroupCallListener(root, it))
+                it.addListener(it.roomId, CallsGroupCallListener.get(root, it))
                 promise.resolve(CallsUtils.convertRoomToJsMap(it))
             }
         }
@@ -192,7 +192,7 @@ class CallsCommonModule(private val root: CallsModule): CommonModule {
                 promise.rejectCalls(it)
             }
             room?.let {
-                it.addListener(it.roomId, CallsGroupCallListener(root, it))
+                it.addListener(it.roomId, CallsGroupCallListener.get(root, it))
                 promise.resolve(CallsUtils.convertRoomToJsMap(it))
             }
         }

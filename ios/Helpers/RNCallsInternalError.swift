@@ -17,6 +17,7 @@ enum RNCallsInternalError: Error {
     case notFoundDirectCall(_ from: String)
     case noResponse(_ from: String)
     case tokenParseFailure(_ from: String)
+    case notFoundRoom(_ from: String)
     case unknown(_ from: String)
     
     var message: String {
@@ -35,6 +36,8 @@ enum RNCallsInternalError: Error {
             return "[\(from)] There is no response"
         case let .tokenParseFailure(from: from):
             return "[\(from)] Failed to parse token, check token format"
+        case let .notFoundRoom(from: from):
+            return "[\(from)] There is no Room"
         case let .unknown(from: from):
             return "[\(from)] Unexpected error"
         }

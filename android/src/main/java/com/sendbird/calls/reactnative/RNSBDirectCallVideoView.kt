@@ -26,10 +26,6 @@ class RNSBDirectCallVideoView(context: Context) : BaseVideoView(context) {
         }
     }
 
-    fun setZOrderMediaOverlay(overlay: Boolean) {
-        mSurface.setZOrderMediaOverlay(overlay)
-    }
-
     fun setViewType(viewType: ViewType) {
         this.mViewType = viewType
         this.updateView()

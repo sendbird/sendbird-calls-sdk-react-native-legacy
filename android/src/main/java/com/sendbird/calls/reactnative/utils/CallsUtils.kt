@@ -227,7 +227,6 @@ object CallsUtils {
             "isVideoEnabled" to participant.isVideoEnabled,
 
             "updatedAt" to participant.updatedAt,
-//        "videoView" to participant.videoView, // TODO: SendBirdVideoView
         ))
     }
 

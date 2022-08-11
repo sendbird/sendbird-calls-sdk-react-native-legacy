@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createRef } from 'react';
-import { View, ViewProps, findNodeHandle, requireNativeComponent } from 'react-native';
+import { ViewProps, findNodeHandle, requireNativeComponent } from 'react-native';
 
+import { BaseVideoViewProps } from '../types';
 import { LINKING_ERROR } from '../utils/constants';
 
 const MODULE_NAME = 'RNSBDirectCallVideoView';
 const NativeViewModule = requireNativeComponent(MODULE_NAME);
 if (!NativeViewModule) throw new Error(LINKING_ERROR);
 
-export interface DirectCallVideoViewProps extends ViewProps {
+export interface DirectCallVideoViewProps extends BaseVideoViewProps, ViewProps {
   viewType: 'local' | 'remote';
   callId?: string;
-  android_zOrderMediaOverlay?: boolean;
 }
 export default class DirectCallVideoView extends React.PureComponent<DirectCallVideoViewProps> {
   private ref = createRef<any>();
@@ -30,12 +30,17 @@ export default class DirectCallVideoView extends React.PureComponent<DirectCallV
       }
     }
 
-    return {
-      viewType: this.props.viewType,
-      callId: this.props.callId,
-      zOrderMediaOverlay: this.props.android_zOrderMediaOverlay ?? false,
-      style: { width: '100%', height: '100%' },
-    };
+    const {
+      android_zOrderMediaOverlay = false,
+      mirror = this.props.viewType === 'local',
+      resizeMode = 'cover',
+      viewType,
+      callId,
+      style,
+      ...rest
+    } = this.props;
+
+    return { zOrderMediaOverlay: android_zOrderMediaOverlay, mirror, resizeMode, viewType, callId, style, ...rest };
   }
 
   public get videoViewId() {
@@ -43,11 +48,7 @@ export default class DirectCallVideoView extends React.PureComponent<DirectCallV
   }
 
   render() {
-    return (
-      <View style={this.props.style}>
-        <NativeViewModule ref={this.ref as any} {...this.validProps} />
-      </View>
-    );
+    return <NativeViewModule ref={this.ref as any} {...this.validProps} />;
   }
 }
 

@@ -20,6 +20,7 @@ export const noopDirectCallListener: DirectCallListener = {
   onUserHoldStatusChanged: noop,
 };
 export const noopRoomListener = {
+  onPropertyUpdatedManually: noop,
   onDeleted: noop,
   onError: noop,
   onRemoteParticipantEntered: noop,

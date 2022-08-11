@@ -1,3 +1,10 @@
+/**
+ * SendbirdError class
+ *
+ * Used at {@link onError} in {@link RoomListener}
+ *
+ * @since 1.0.0
+ */
 export class SendbirdError extends Error {
   constructor(message: string, code: number) {
     super(message);

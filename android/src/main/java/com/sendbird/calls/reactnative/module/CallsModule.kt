@@ -10,6 +10,7 @@ import com.sendbird.calls.handler.CompletionHandler
 import com.sendbird.calls.handler.SendBirdCallListener
 import com.sendbird.calls.reactnative.CallsEvents
 import com.sendbird.calls.reactnative.module.listener.CallsDirectCallListener
+import com.sendbird.calls.reactnative.module.listener.CallsGroupCallListener
 import com.sendbird.calls.reactnative.utils.CallsUtils
 
 class CallsModule(val reactContext: ReactApplicationContext) : CallsModuleStruct, SendBirdCallListener() {
@@ -31,6 +32,8 @@ class CallsModule(val reactContext: ReactApplicationContext) : CallsModuleStruct
             SendBirdCall.removeAllRecordingListeners()
             SendBirdCall.deauthenticate(handler)
             SendBirdCall.ongoingCalls.forEach { it.end() }
+            CallsDirectCallListener.shared = null
+            CallsGroupCallListener.invalidate()
         }
     }
 

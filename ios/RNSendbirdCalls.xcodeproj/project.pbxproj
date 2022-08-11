@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4489CA11287EA35000E66D81 /* RNSBGroupCallVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4489CA10287EA35000E66D81 /* RNSBGroupCallVideoView.swift */; };
+		4489CA13287EA38000E66D81 /* RNSBGroupCallVideoViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4489CA12287EA38000E66D81 /* RNSBGroupCallVideoViewManager.swift */; };
+		4489CA15287EA3B600E66D81 /* RNSBGroupCallVideoViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4489CA14287EA3B600E66D81 /* RNSBGroupCallVideoViewManager.m */; };
+		44BE5F942873A5C30072E874 /* CallsModule+GroupCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BE5F932873A5C30072E874 /* CallsModule+GroupCall.swift */; };
 		ED1849E92854449D00354FA9 /* AVAudioSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1849E82854449D00354FA9 /* AVAudioSession+Extension.swift */; };
 		ED1849EB2854641600354FA9 /* RNSBDirectCallVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1849EA2854641600354FA9 /* RNSBDirectCallVideoView.swift */; };
 		ED1849ED2854644800354FA9 /* RNSBDirectCallVideoViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ED1849EC2854644800354FA9 /* RNSBDirectCallVideoViewManager.m */; };
 		ED1849EF2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1849EE2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift */; };
+		ED1B580D287C0A6C00879BD3 /* GroupCallDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1B580C287C0A6C00879BD3 /* GroupCallDelegate.swift */; };
 		ED452A0028498CAC000D8CE8 /* CallsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4529FF28498CAC000D8CE8 /* CallsEvents.swift */; };
 		ED452A0328498CC9000D8CE8 /* BaseVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED452A0228498CC9000D8CE8 /* BaseVideoView.swift */; };
 		ED452A072849BC46000D8CE8 /* RNCallsInternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED452A062849BC46000D8CE8 /* RNCallsInternalError.swift */; };
@@ -42,10 +47,15 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNSendbirdCalls.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNSendbirdCalls.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4489CA10287EA35000E66D81 /* RNSBGroupCallVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSBGroupCallVideoView.swift; sourceTree = "<group>"; };
+		4489CA12287EA38000E66D81 /* RNSBGroupCallVideoViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSBGroupCallVideoViewManager.swift; sourceTree = "<group>"; };
+		4489CA14287EA3B600E66D81 /* RNSBGroupCallVideoViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSBGroupCallVideoViewManager.m; sourceTree = "<group>"; };
+		44BE5F932873A5C30072E874 /* CallsModule+GroupCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallsModule+GroupCall.swift"; sourceTree = "<group>"; };
 		ED1849E82854449D00354FA9 /* AVAudioSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVAudioSession+Extension.swift"; sourceTree = "<group>"; };
 		ED1849EA2854641600354FA9 /* RNSBDirectCallVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSBDirectCallVideoView.swift; sourceTree = "<group>"; };
 		ED1849EC2854644800354FA9 /* RNSBDirectCallVideoViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNSBDirectCallVideoViewManager.m; sourceTree = "<group>"; };
 		ED1849EE2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNSBDirectCallVideoViewManager.swift; sourceTree = "<group>"; };
+		ED1B580C287C0A6C00879BD3 /* GroupCallDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupCallDelegate.swift; sourceTree = "<group>"; };
 		ED4529FF28498CAC000D8CE8 /* CallsEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallsEvents.swift; sourceTree = "<group>"; };
 		ED452A0228498CC9000D8CE8 /* BaseVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVideoView.swift; sourceTree = "<group>"; };
 		ED452A062849BC46000D8CE8 /* RNCallsInternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNCallsInternalError.swift; sourceTree = "<group>"; };
@@ -93,9 +103,12 @@
 				EDFE16872820F2B100D3E55C /* Modules */,
 				F4FF95D6245B92E800C19C63 /* RNSendbirdCalls.swift */,
 				ED895EC32806DBCF00980F59 /* RNSendbirdCalls.m */,
+				4489CA10287EA35000E66D81 /* RNSBGroupCallVideoView.swift */,
 				ED1849EA2854641600354FA9 /* RNSBDirectCallVideoView.swift */,
 				ED1849EE2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift */,
+				4489CA12287EA38000E66D81 /* RNSBGroupCallVideoViewManager.swift */,
 				ED1849EC2854644800354FA9 /* RNSBDirectCallVideoViewManager.m */,
+				4489CA14287EA3B600E66D81 /* RNSBGroupCallVideoViewManager.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,10 +147,12 @@
 		EDFE16872820F2B100D3E55C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EDFE61D22858DE420055B413 /* CallsQueries.swift */,
 				EDFE16882820F2C400D3E55C /* CallsModule.swift */,
 				EDFE168C2820F64E00D3E55C /* CallsModule+Common.swift */,
 				ED5C694A2824BF3F00E9904E /* CallsModule+DirectCall.swift */,
-				EDFE61D22858DE420055B413 /* CallsQueries.swift */,
+				44BE5F932873A5C30072E874 /* CallsModule+GroupCall.swift */,
+				ED1B580C287C0A6C00879BD3 /* GroupCallDelegate.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -210,12 +225,17 @@
 				ED452A0028498CAC000D8CE8 /* CallsEvents.swift in Sources */,
 				EDA31B0728645CE0003B2E95 /* MediaDeviceControlProtocol.swift in Sources */,
 				ED1849EF2854683600354FA9 /* RNSBDirectCallVideoViewManager.swift in Sources */,
+				ED1B580D287C0A6C00879BD3 /* GroupCallDelegate.swift in Sources */,
+				4489CA13287EA38000E66D81 /* RNSBGroupCallVideoViewManager.swift in Sources */,
+				4489CA15287EA3B600E66D81 /* RNSBGroupCallVideoViewManager.m in Sources */,
 				ED79CE2A28264C13007CC64F /* SendBirdCalls+Extension.swift in Sources */,
 				EDFE168F28212C2E00D3E55C /* CallsUtils.swift in Sources */,
 				ED5C6942282244D500E9904E /* Promise.swift in Sources */,
 				ED1849ED2854644800354FA9 /* RNSBDirectCallVideoViewManager.m in Sources */,
+				44BE5F942873A5C30072E874 /* CallsModule+GroupCall.swift in Sources */,
 				ED452A0328498CC9000D8CE8 /* BaseVideoView.swift in Sources */,
 				ED1849E92854449D00354FA9 /* AVAudioSession+Extension.swift in Sources */,
+				4489CA11287EA35000E66D81 /* RNSBGroupCallVideoView.swift in Sources */,
 				ED1849EB2854641600354FA9 /* RNSBDirectCallVideoView.swift in Sources */,
 				ED5C694B2824BF3F00E9904E /* CallsModule+DirectCall.swift in Sources */,
 			);

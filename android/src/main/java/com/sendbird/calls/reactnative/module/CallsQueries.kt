@@ -133,7 +133,7 @@ class CallsQueries(private val root: CallsModule) {
                                     promise.resolve(CallsUtils.convertToJsMap(mapOf(
                                         "hasNext" to this.hasNext(),
                                         "result" to list.map {
-                                            it.addListener(it.roomId, CallsGroupCallListener(root, it))
+                                            it.addListener(it.roomId, CallsGroupCallListener.get(root, it))
                                             CallsUtils.convertRoomToJsMap(it)
                                         }
                                     )))

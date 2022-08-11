@@ -16,7 +16,7 @@ class RNSendbirdCallsPackage : ReactPackage {
         return listOf(RNSendbirdCallsModule(reactContext))
     }
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*,*>> {
-        return listOf(RNSBDirectCallVideoViewManager(reactContext))
+        return listOf(RNSBDirectCallVideoViewManager(reactContext), RNSBGroupCallVideoViewManager(reactContext))
     }
 
 //    override fun getModule(name: String?, reactContext: ReactApplicationContext): NativeModule? {

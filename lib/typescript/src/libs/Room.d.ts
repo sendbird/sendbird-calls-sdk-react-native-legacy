@@ -1,6 +1,6 @@
 import type { AudioDevice, EnterParams, GroupCallMethods, RoomListener, RoomProperties } from '../types';
-import { LocalParticipant } from './LocalParticipant';
 import type NativeBinder from './NativeBinder';
+import { LocalParticipant, Participant } from './Participant';
 export interface InternalEvents<T> {
     pool: Partial<T>[];
     emit: (event: keyof T, ...args: unknown[]) => void;
@@ -17,15 +17,17 @@ export declare class Room implements RoomProperties, GroupCallMethods {
     private _binder;
     private _props;
     private _localParticipant;
+    private _participants;
+    private _remoteParticipants;
     private _internalEvents;
     private _updateInternal;
     get roomId(): string;
     get state(): import("../types").RoomState;
     get type(): import("../types").RoomType;
     get customItems(): Record<string, string>;
-    get participants(): import("../types").ParticipantProperties[];
+    get participants(): Participant[];
     get localParticipant(): LocalParticipant | null;
-    get remoteParticipants(): import("../types").ParticipantProperties[];
+    get remoteParticipants(): Participant[];
     get android_availableAudioDevices(): import("../types").AudioDeviceType[];
     get android_currentAudioDevice(): import("../types").AudioDeviceType | null;
     get createdAt(): number;
