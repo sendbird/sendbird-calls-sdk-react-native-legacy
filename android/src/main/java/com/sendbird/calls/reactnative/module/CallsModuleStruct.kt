@@ -24,7 +24,7 @@ interface CommonModule {
 
     fun dial(calleeId: String, isVideoCall: Boolean, options: ReadableMap, promise: Promise)
 
-    fun createRoom(roomType: String, promise: Promise)
+    fun createRoom(params: ReadableMap, promise: Promise)
     fun fetchRoomById(roomId: String, promise: Promise)
     fun getCachedRoomById(roomId: String, promise: Promise)
 }

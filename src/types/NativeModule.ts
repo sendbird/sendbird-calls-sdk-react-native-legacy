@@ -12,7 +12,7 @@ import {
   NativeQueryType,
   RoomListQueryParams,
 } from './Query';
-import type { EnterParams, RoomProperties, RoomType } from './Room';
+import type { EnterParams, RoomParams, RoomProperties } from './Room';
 import type { User } from './User';
 import type { AsJSInterface, AsJSMediaDeviceControl } from './index';
 
@@ -42,7 +42,7 @@ export interface NativeCommonModule {
   registerPushToken(token: string, unique?: boolean): Promise<void>;
   unregisterPushToken(token: string): Promise<void>;
   dial(calleeUserId: string, isVideoCall: boolean, options: CallOptions): Promise<DirectCallProperties>;
-  createRoom(roomType: RoomType): Promise<RoomProperties>;
+  createRoom(roomParams: RoomParams): Promise<RoomProperties>;
   fetchRoomById(roomId: string): Promise<RoomProperties>;
   getCachedRoomById(roomId: string): Promise<RoomProperties | null>;
 

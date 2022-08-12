@@ -171,10 +171,12 @@ class CallsCommonModule(private val root: CallsModule): CommonModule {
         }
     }
 
-    override fun createRoom(roomType: String, promise: Promise) {
+    override fun createRoom(params: ReadableMap, promise: Promise) {
+        val roomType = CallsUtils.safeGet { params.getString("roomType") } ?: "SMALL_ROOM_FOR_VIDEO"
         Log.d(CallsModule.NAME, "[CommonModule] createRoom($roomType)")
-        val params = RoomParams(RoomType.valueOf(roomType.uppercase()))
-        SendBirdCall.createRoom(params) { room, error ->
+
+        val roomParams = RoomParams(RoomType.valueOf(roomType.uppercase()))
+        SendBirdCall.createRoom(roomParams) { room, error ->
             error?.let {
                 promise.rejectCalls(it)
             }

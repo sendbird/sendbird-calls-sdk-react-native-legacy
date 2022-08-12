@@ -1,4 +1,4 @@
-import type { CallOptions, DirectCallLogQueryParams, DirectCallProperties, RoomListQueryParams, SendbirdCallsJavascriptSpec, User } from '../types';
+import type { CallOptions, DirectCallLogQueryParams, DirectCallProperties, RoomListQueryParams, RoomParams, SendbirdCallsJavascriptSpec, User } from '../types';
 import { NativeConstants, RoomType, SoundType } from '../types';
 import { DirectCallLogListQuery, RoomListQuery } from './BridgedQuery';
 import { DirectCall } from './DirectCall';
@@ -172,7 +172,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
      *
      * @since 1.0.0
      */
-    createRoom(roomType: RoomType): Promise<Room>;
+    createRoom(roomParams: RoomParams): Promise<Room>;
     /**
      * Fetches a room instance from Sendbird server.
      *

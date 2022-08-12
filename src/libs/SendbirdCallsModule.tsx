@@ -6,6 +6,7 @@ import type {
   DirectCallLogQueryParams,
   DirectCallProperties,
   RoomListQueryParams,
+  RoomParams,
   SendbirdCallsJavascriptSpec,
   User,
 } from '../types';
@@ -279,8 +280,8 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
    *
    * @since 1.0.0
    */
-  public createRoom(roomType: RoomType): Promise<Room> {
-    return this.binder.nativeModule.createRoom(roomType).then((props) => Room.get(this.binder, props));
+  public createRoom(roomParams: RoomParams): Promise<Room> {
+    return this.binder.nativeModule.createRoom(roomParams).then((props) => Room.get(this.binder, props));
   }
 
   /**

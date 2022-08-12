@@ -182,6 +182,10 @@ export interface GroupCallMethods extends JSGroupCallModule, JSGroupCallMediaDev
   addListener(listener: Partial<RoomListener>): () => void;
 }
 
+export type RoomParams = {
+  roomType: RoomType;
+};
+
 export enum RoomType {
   SMALL_ROOM_FOR_VIDEO = 'SMALL_ROOM_FOR_VIDEO',
   LARGE_ROOM_FOR_AUDIO_ONLY = 'LARGE_ROOM_FOR_AUDIO_ONLY',

@@ -120,7 +120,7 @@ RCT_EXTERN_METHOD(getCachedRoomById
                   : (RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(createRoom
-                  : (NSString *)type
+                  : (NSDictionary *)params
                   : (RCTPromiseResolveBlock)resolve
                   : (RCTPromiseRejectBlock)reject)
 

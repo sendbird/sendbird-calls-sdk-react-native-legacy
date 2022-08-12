@@ -153,6 +153,9 @@ declare type JSGroupCallMediaDeviceControl = AsJSInterface<Pick<JSMediaDeviceCon
 export interface GroupCallMethods extends JSGroupCallModule, JSGroupCallMediaDeviceControl {
     addListener(listener: Partial<RoomListener>): () => void;
 }
+export declare type RoomParams = {
+    roomType: RoomType;
+};
 export declare enum RoomType {
     SMALL_ROOM_FOR_VIDEO = "SMALL_ROOM_FOR_VIDEO",
     LARGE_ROOM_FOR_AUDIO_ONLY = "LARGE_ROOM_FOR_AUDIO_ONLY"

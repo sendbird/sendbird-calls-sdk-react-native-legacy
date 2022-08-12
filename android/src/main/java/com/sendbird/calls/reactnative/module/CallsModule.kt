@@ -68,7 +68,7 @@ class CallsModule(val reactContext: ReactApplicationContext) : CallsModuleStruct
     override fun registerPushToken(token: String, unique: Boolean, promise: Promise) = commonModule.registerPushToken(token, unique, promise)
     override fun unregisterPushToken(token: String, promise: Promise) = commonModule.unregisterPushToken(token, promise)
     override fun dial(calleeId: String, isVideoCall: Boolean, options: ReadableMap, promise: Promise) = commonModule.dial(calleeId, isVideoCall, options, promise)
-    override fun createRoom(roomType: String, promise: Promise) = commonModule.createRoom(roomType, promise)
+    override fun createRoom(params: ReadableMap, promise: Promise) = commonModule.createRoom(params, promise)
     override fun fetchRoomById(roomId: String, promise: Promise) = commonModule.fetchRoomById(roomId, promise)
     override fun getCachedRoomById(roomId: String, promise: Promise) = commonModule.getCachedRoomById(roomId, promise)
 

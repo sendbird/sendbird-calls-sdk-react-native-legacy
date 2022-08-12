@@ -34,7 +34,7 @@ protocol CallsCommonModuleProtocol {
     
     func fetchRoomById(_ roomId: String, _ promise: Promise)
     func getCachedRoomById(_ roomId: String, _ promise: Promise)
-    func createRoom(_ type: String, _ promise: Promise)
+    func createRoom(_ params: [String: Any], _ promise: Promise)
 }
 
 class CallsCommonModule: CallsBaseModule, CallsCommonModuleProtocol {
@@ -192,21 +192,19 @@ class CallsCommonModule: CallsBaseModule, CallsCommonModuleProtocol {
     }
     
     func getCachedRoomById(_ roomId: String, _ promise: Promise) {
-        DispatchQueue.main.async {
-            do {
-                let room = try SendBirdCall.getCachedRoom(by: roomId)
-                promise.resolve(CallsUtils.convertRoomToDict(room))
-            } catch {
-                promise.resolve(nil)
-            }
+        guard let room = SendBirdCall.getCachedRoom(by: roomId) else {
+            return promise.resolve(nil)
         }
+        promise.resolve(CallsUtils.convertRoomToDict(room))
     }
-
-    func createRoom(_ type: String, _ promise: Promise) {
+    
+    func createRoom(_ params: [String: Any], _ promise: Promise) {
         let from = "groupCall/createRoom"
-        guard let roomType = RoomType(fromString: type) else {
+        guard let roomTypeString = params["roomType"] as? String,
+            let roomType = RoomType(fromString: roomTypeString) else {
             return promise.reject(RNCallsInternalError.invalidParams(from))
         }
+        
         let roomParams = RoomParams(roomType: roomType)
         SendBirdCall.createRoom(with: roomParams) { room, error in
             if let error = error {

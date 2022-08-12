@@ -132,8 +132,8 @@ extension CallsModule: CallsCommonModuleProtocol {
         commonModule.getCachedRoomById(roomId, promise)
     }
     
-    func createRoom(_ type: String, _ promise: Promise) {
-        commonModule.createRoom(type, promise)
+    func createRoom(_ params: [String: Any], _ promise: Promise) {
+        commonModule.createRoom(params, promise)
     }
 }
 

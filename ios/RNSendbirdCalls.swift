@@ -151,8 +151,8 @@ extension RNSendbirdCalls {
         module.getCachedRoomById(roomId, Promise(resolve, reject))
     }
     
-    @objc func createRoom(_ type: String, _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
-        module.createRoom(type, Promise(resolve, reject))
+    @objc func createRoom(_ params: [String: Any], _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
+        module.createRoom(params, Promise(resolve, reject))
     }
 }
 

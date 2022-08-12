@@ -4,7 +4,7 @@ import type { CallOptions, DirectCallLog, DirectCallProperties } from './Call';
 import type { AudioDevice, VideoDevice } from './Media';
 import { SoundType } from './Media';
 import { DirectCallLogQueryParams, NativeQueryCreator, NativeQueryKey, NativeQueryResult, NativeQueryType, RoomListQueryParams } from './Query';
-import type { EnterParams, RoomProperties, RoomType } from './Room';
+import type { EnterParams, RoomParams, RoomProperties } from './Room';
 import type { User } from './User';
 import type { AsJSInterface, AsJSMediaDeviceControl } from './index';
 declare type NativeModuleInterface = NativeModule & TurboModule;
@@ -26,7 +26,7 @@ export interface NativeCommonModule {
     registerPushToken(token: string, unique?: boolean): Promise<void>;
     unregisterPushToken(token: string): Promise<void>;
     dial(calleeUserId: string, isVideoCall: boolean, options: CallOptions): Promise<DirectCallProperties>;
-    createRoom(roomType: RoomType): Promise<RoomProperties>;
+    createRoom(roomParams: RoomParams): Promise<RoomProperties>;
     fetchRoomById(roomId: string): Promise<RoomProperties>;
     getCachedRoomById(roomId: string): Promise<RoomProperties | null>;
     /** @platform Android **/
