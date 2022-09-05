@@ -34,6 +34,9 @@ export type RoomListQueryParams = {
   currentParticipantCount?: Range;
 };
 
-type Range = { upperBound?: number; lowerBound?: number };
+export type Range = {
+  upperBound?: number;
+  lowerBound?: number;
+};
 
 export type NativeQueryResult<T> = Promise<{ hasNext: boolean; result: T[] }>;
