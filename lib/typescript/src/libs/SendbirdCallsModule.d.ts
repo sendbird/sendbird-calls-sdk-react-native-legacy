@@ -1,5 +1,5 @@
-import type { CallOptions, DirectCallLogQueryParams, DirectCallProperties, RoomListQueryParams, RoomParams, SendbirdCallsJavascriptSpec, User } from '../types';
-import { NativeConstants, RoomType, SoundType } from '../types';
+import type { AuthenticateParams, CallOptions, DirectCallLogQueryParams, DirectCallProperties, RoomListQueryParams, RoomParams, SendbirdCallListener, SendbirdCallsJavascriptSpec, User } from '../types';
+import { NativeConstants, RoomState, RoomType, SoundType } from '../types';
 import { DirectCallLogListQuery, RoomListQuery } from './BridgedQuery';
 import { DirectCall } from './DirectCall';
 import NativeBinder from './NativeBinder';
@@ -13,7 +13,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
     private _applicationId;
     private _initialized;
     private _currentUser;
-    private _onRinging;
+    private _sendbirdCallListener;
     /**
      * Returns current React-Native SDK version.
      *
@@ -33,13 +33,11 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
      */
     get Logger(): {
         setTitle(title: string): void;
-        setLogLevel(lv: "none" | "log" | "error" | "warn" | "info" | "debug"): void;
-        getLogLevel(): "none" | "log" | "error" | "warn" | "info" | "debug";
-        log(...args: unknown[]): number;
+        setLogLevel(lv: "none" | "error" | "warning" | "info"): void;
+        getLogLevel(): "none" | "error" | "warning" | "info";
         error(...args: unknown[]): number;
         warn(...args: unknown[]): number;
         info(...args: unknown[]): number;
-        debug(...args: unknown[]): number;
     };
     /**
      * Returns current application ID.
@@ -55,7 +53,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
     get initialized(): boolean;
     /**
      * Gets the current `User`.
-     * Returns the current `User`. If SendBirdCall is not authenticated, `null` will be returned.
+     * Returns the current `User`. If SendbirdCalls is not authenticated, `null` will be returned.
      *
      * @since 1.0.0
      */
@@ -67,6 +65,13 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
      * @since 1.0.0
      */
     get RoomType(): typeof RoomType;
+    /**
+     * An enum that represents state of a room.
+     * Returns {@link RoomState}
+     *
+     * @since 1.0.0
+     */
+    get RoomState(): typeof RoomState;
     /**
      * Gets the constants from React-Native Native module
      * Returns the object
@@ -98,7 +103,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
     setDirectCallDialingSoundOnWhenSilentOrVibrateMode: (enabled: boolean) => void;
     /**
      * Gets the current `User` from native
-     * Returns the current `User`. If SendBirdCall is not authenticated, `null` will be returned.
+     * Returns the current `User`. If SendbirdCalls is not authenticated, `null` will be returned.
      *
      * @since 1.0.0
      */
@@ -127,7 +132,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
      *
      * @since 1.0.0
      */
-    authenticate: (userId: string, accessToken?: string | null) => Promise<User>;
+    authenticate: (authParams: AuthenticateParams) => Promise<User>;
     /**
      * Deauthenticates.
      *
@@ -211,17 +216,18 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
     ios_routePickerView: () => void;
     /**
      * Handles Firebase message data.
-     * Returns true if SendBird call message. Otherwise false.
+     * Returns true if Sendbird call message. Otherwise false.
      *
      * @platform Android
      * @since 1.0.0
      */
     android_handleFirebaseMessageData: (data?: Record<string, string> | undefined) => boolean;
     /**
-     * Set onRinging listener
-     * A listener called when received dialing.
+     * Set SendbirdCall listener
+     *
+     * @since 1.0.0
      */
-    onRinging(listener: (props: DirectCallProperties) => void): void;
+    setListener(listener: SendbirdCallListener): void;
     /**
      * Creates direct call log list query.
      *

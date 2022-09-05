@@ -41,7 +41,7 @@ class GroupCallDelegate: RoomDelegate {
                                          CallsUtils.convertRoomToDict(self.room)!,
                                          [
                                             "participant": CallsUtils.convertParticipantToDict(participant),
-                                            "errorCode": String(error.errorCode.rawValue),
+                                            "errorCode": error.errorCode.rawValue,
                                             "errorMessage": error.localizedDescription
                                          ])
         }

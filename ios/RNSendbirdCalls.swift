@@ -115,8 +115,8 @@ extension RNSendbirdCalls {
         module.getDirectCall(callIdOrUUID, Promise(resolve, reject))
     }
     
-    @objc func authenticate(_ userId: String, _ accessToken: String?, _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
-        module.authenticate(userId, accessToken, Promise(resolve, reject))
+    @objc func authenticate(_ authParams: [String: Any], _ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {
+        module.authenticate(authParams, Promise(resolve, reject))
     }
     
     @objc func deauthenticate(_ resolve: @escaping RCTPromiseResolveBlock, _ reject: @escaping RCTPromiseRejectBlock) {

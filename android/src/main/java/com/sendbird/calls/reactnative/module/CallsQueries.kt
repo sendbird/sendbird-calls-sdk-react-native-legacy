@@ -3,8 +3,10 @@ package com.sendbird.calls.reactnative.module
 import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.WritableNativeArray
+import com.facebook.react.bridge.WritableNativeMap
 import com.sendbird.calls.*
 import com.sendbird.calls.reactnative.RNCallsInternalError
+import com.sendbird.calls.reactnative.extension.rangeFromReactNative
 import com.sendbird.calls.reactnative.extension.rejectCalls
 import com.sendbird.calls.reactnative.module.listener.CallsGroupCallListener
 import com.sendbird.calls.reactnative.utils.CallsUtils
@@ -63,31 +65,23 @@ class CallsQueries(private val root: CallsModule) {
                 params.getString("type")?.let { RoomType.valueOf(it) }
             }?.let { setType(it) }
 
+            CallsUtils.safeGet {
+                val createdAt = params.getMap("createdAt") ?: WritableNativeMap()
+                val lowerBound = CallsUtils
+                    .safeGet { createdAt.getDouble("lowerBound") }
+                val upperBound = CallsUtils
+                    .safeGet { createdAt.getDouble("upperBound") }
+                Range.rangeFromReactNative(lowerBound, upperBound)
+            }?.let { setRangeForCreatedAt(it) }
 
-            // FIXME: Range methods are internal. (reported issue)
-//            val createdAtRange = CallsUtils.safeGet {
-//                val range = Range()
-//                val createdAt = params.getMap("createdAt") ?: WritableNativeMap()
-//                CallsUtils
-//                    .safeGet { createdAt.getDouble("lowerBound") }
-//                    ?.let { range.greaterThanOrEqualTo(it.toLong()) }
-//                CallsUtils
-//                    .safeGet { createdAt.getDouble("upperBound") }
-//                    ?.let { range.lessThanOrEqualTo(it.toLong()) }
-//                range
-//            }
-//
-//            val participantCountRange = CallsUtils.safeGet {
-//                val range = Range()
-//                val count = params.getMap("currentParticipantCount")
-//                CallsUtils
-//                    .safeGet { count?.getDouble("lowerBound") }
-//                    ?.let { range.greaterThanOrEqualTo(it.toLong()) }
-//                CallsUtils
-//                    .safeGet { count?.getDouble("upperBound") }
-//                    ?.let { range.lessThanOrEqualTo(it.toLong()) }
-//                range
-//            }
+            CallsUtils.safeGet {
+                val count = params.getMap("currentParticipantCount") ?: WritableNativeMap()
+                val lowerBound = CallsUtils
+                    .safeGet { count.getDouble("lowerBound") }
+                val upperBound = CallsUtils
+                    .safeGet { count.getDouble("upperBound") }
+                Range.rangeFromReactNative(lowerBound, upperBound)
+            }?.let { setRangeForCurrentParticipantCount(it) }
         }
 
         SendBirdCall.createRoomListQuery(queryParams).let {

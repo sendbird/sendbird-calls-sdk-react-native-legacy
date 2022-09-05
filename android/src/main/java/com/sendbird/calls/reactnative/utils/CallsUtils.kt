@@ -135,6 +135,7 @@ object CallsUtils {
         "caller" to convertDirectCallUserToJsMap(call.caller),
         "endedBy" to convertDirectCallUserToJsMap(call.endedBy),
         "customItems" to call.customItems,
+        "startedAt" to call.startedAt,
         "duration" to call.duration,
         "endResult" to call.endResult.asString(),
         "localUser" to convertDirectCallUserToJsMap(call.localUser),

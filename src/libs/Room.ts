@@ -113,7 +113,7 @@ export class Room implements RoomProperties, GroupCallMethods {
    * @since 1.0.0
    */
   public addListener = (listener: Partial<RoomListener>) => {
-    Logger.debug('[GroupCall]', 'addListener', this.roomId);
+    Logger.info('[GroupCall]', 'addListener', this.roomId);
 
     const unsubscribes: Array<() => void> = [];
 
@@ -121,7 +121,7 @@ export class Room implements RoomProperties, GroupCallMethods {
 
     const disposeNative = this._binder.addListener(CallsEvent.GROUP_CALL, ({ type, data, additionalData }) => {
       if (data.roomId !== this.roomId) return;
-      Logger.debug('[GroupCall]', 'receive events ', type, data.roomId, additionalData);
+      Logger.info('[GroupCall]', 'receive events ', type, data.roomId, additionalData);
 
       this._updateInternal(data);
       switch (type) {

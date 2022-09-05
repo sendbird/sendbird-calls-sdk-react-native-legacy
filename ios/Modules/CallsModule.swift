@@ -96,8 +96,8 @@ extension CallsModule: CallsCommonModuleProtocol {
         return commonModule.initialize(appId)
     }
     
-    func authenticate(_ userId: String, _ accessToken: String?, _ promise: Promise) {
-        commonModule.authenticate(userId, accessToken, promise)
+    func authenticate(_ authParams: [String: Any?], _ promise: Promise) {
+        commonModule.authenticate(authParams, promise)
     }
     
     func deauthenticate(_ promise: Promise) {

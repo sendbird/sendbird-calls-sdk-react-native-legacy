@@ -57,7 +57,7 @@ class RNSendbirdCallsModule(private val reactContext: ReactApplicationContext) :
     @ReactMethod
     override fun initialize(appId: String) = module.initialize(appId)
     @ReactMethod
-    override fun authenticate(userId: String, accessToken: String?, promise: Promise) = module.authenticate(userId, accessToken, promise)
+    override fun authenticate(authParams: ReadableMap, promise: Promise) = module.authenticate(authParams, promise)
     @ReactMethod
     override fun deauthenticate(promise: Promise) = module.deauthenticate(promise)
     @ReactMethod

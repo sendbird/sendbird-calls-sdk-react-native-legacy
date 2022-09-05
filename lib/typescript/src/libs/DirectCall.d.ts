@@ -22,6 +22,7 @@ export declare class DirectCall implements DirectCallProperties, DirectCallMetho
     get caller(): import("../types").DirectCallUser | null;
     get currentVideoDevice(): VideoDevice | null;
     get customItems(): Record<string, string>;
+    get startedAt(): number;
     get duration(): number;
     get endedBy(): import("../types").DirectCallUser | null;
     get isEnded(): boolean;

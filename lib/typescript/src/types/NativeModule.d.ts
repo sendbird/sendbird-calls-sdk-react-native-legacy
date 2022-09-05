@@ -1,11 +1,11 @@
 import type { NativeModule, TurboModule } from 'react-native';
 import { BridgedQuery } from '../libs/BridgedQuery';
-import type { CallOptions, DirectCallLog, DirectCallProperties } from './Call';
+import type { CallOptions, DirectCallLog, DirectCallProperties, SendbirdCallListener } from './Call';
 import type { AudioDevice, VideoDevice } from './Media';
 import { SoundType } from './Media';
 import { DirectCallLogQueryParams, NativeQueryCreator, NativeQueryKey, NativeQueryResult, NativeQueryType, RoomListQueryParams } from './Query';
 import type { EnterParams, RoomParams, RoomProperties } from './Room';
-import type { User } from './User';
+import type { AuthenticateParams, User } from './User';
 import type { AsJSInterface, AsJSMediaDeviceControl } from './index';
 declare type NativeModuleInterface = NativeModule & TurboModule;
 export declare type NativeConstants = {
@@ -21,7 +21,7 @@ export interface NativeCommonModule {
     getOngoingCalls(): Promise<DirectCallProperties[]>;
     getDirectCall(callId: string): Promise<DirectCallProperties>;
     initialize(appId: string): boolean;
-    authenticate(userId: string, accessToken?: string | null): Promise<User>;
+    authenticate(authParams: AuthenticateParams): Promise<User>;
     deauthenticate(): Promise<void>;
     registerPushToken(token: string, unique?: boolean): Promise<void>;
     unregisterPushToken(token: string): Promise<void>;
@@ -76,7 +76,7 @@ export interface SendbirdCallsNativeSpec extends NativeModuleInterface, NativeQu
 declare type PlatformSpecificInterface = AsJSInterface<AsJSInterface<NativeCommonModule, 'ios', CommonModule_IOSSpecificKeys>, 'android', CommonModule_AndroidSpecificKeys>;
 export interface SendbirdCallsJavascriptSpec extends PlatformSpecificInterface {
     /** Listeners **/
-    onRinging(listener: (props: DirectCallProperties) => void): void;
+    setListener(listener: SendbirdCallListener): void;
     /** Queries **/
     createDirectCallLogListQuery(params: DirectCallLogQueryParams): Promise<BridgedQuery<NativeQueryType.DIRECT_CALL_LOG>>;
     createRoomListQuery(params: RoomListQueryParams): Promise<BridgedQuery<NativeQueryType.ROOM_LIST>>;

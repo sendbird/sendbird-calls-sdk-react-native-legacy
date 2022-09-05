@@ -71,8 +71,7 @@ RCT_EXTERN_METHOD(getDirectCall
                   : (RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(authenticate
-                  : (NSString *)userId
-                  : (nullable NSString *)accessToken
+                  : (NSDictionary *)authParams
                   : (RCTPromiseResolveBlock)resolve
                   : (RCTPromiseRejectBlock)reject)
 

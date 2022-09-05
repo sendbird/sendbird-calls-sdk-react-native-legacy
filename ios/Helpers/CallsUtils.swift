@@ -32,6 +32,7 @@ class CallsUtils {
             "caller": convertDirectCallUserToDict(call.caller),
             "endedBy": convertDirectCallUserToDict(call.endedBy),
             "customItems": call.customItems,
+            "startedAt": call.startedAt,
             "duration": call.duration,
             "endResult": call.endResult.asString,
             "localUser": convertDirectCallUserToDict(call.localUser),

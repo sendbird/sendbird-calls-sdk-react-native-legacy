@@ -21,7 +21,7 @@ protocol CallsCommonModuleProtocol {
     
     func initialize(_ appId: String) -> Bool
     
-    func authenticate(_ userId: String, _ accessToken: String?, _ promise: Promise)
+    func authenticate(_ authParams: [String: Any?], _ promise: Promise)
     func deauthenticate(_ promise: Promise)
     
     func registerPushToken(_ token: String, _ unique: Bool, _ promise: Promise)
@@ -84,9 +84,15 @@ class CallsCommonModule: CallsBaseModule, CallsCommonModuleProtocol {
         return SendBirdCall.configure(appId: appId)
     }
     
-    func authenticate(_ userId: String, _ accessToken: String?, _ promise: Promise) {
-        let authParams = AuthenticateParams(userId: userId, accessToken: accessToken)
-        SendBirdCall.authenticate(with: authParams) { user, error in
+    func authenticate(_ authParams: [String: Any?], _ promise: Promise) {
+        let userId = authParams["userId"] as! String
+        let authenticateParams = AuthenticateParams(userId: userId)
+        
+        if let accessToken = authParams["accessToken"] as? String {
+            authenticateParams.accessToken = accessToken
+        }
+        
+        SendBirdCall.authenticate(with: authenticateParams) { user, error in
             if let error = error {
                 promise.reject(error)
             } else if let user = user {

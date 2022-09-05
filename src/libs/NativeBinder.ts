@@ -91,13 +91,13 @@ export default class NativeBinder {
   constructor() {
     /* for reduce redundant native event listeners */
     this._supportedNativeEvents.forEach((event) => {
-      Logger.debug('[NativeBinder] Add native event listener:', event);
+      Logger.info('[NativeBinder] Add native event listener:', event);
 
       // Native -> JS
       this._nativeEventEmitter.addListener(
         event,
         ({ eventType, data, additionalData }: Omit<EventUnion, 'convertedData'>) => {
-          Logger.debug(
+          Logger.info(
             '[NativeBinder] Receive events from native module: ',
             [
               event,
@@ -133,7 +133,7 @@ export default class NativeBinder {
   public addListener(eventName: CallsEvent.DIRECT_CALL, callback: EventCallback<DirectCallEventType>): () => void;
   public addListener(eventName: CallsEvent.GROUP_CALL, callback: EventCallback<GroupCallEventType>): () => void;
   public addListener(eventName: string, callback: (event: any) => void) {
-    Logger.log('[NativeBinder] Add javascript event listener:', eventName);
+    Logger.info('[NativeBinder] Add javascript event listener:', eventName);
     return this.jsEventEmitter.addListener(eventName, callback);
   }
 }

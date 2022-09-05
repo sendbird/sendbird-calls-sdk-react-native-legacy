@@ -152,6 +152,12 @@ export interface DirectCallProperties {
      */
     customItems: Record<string, string>;
     /**
+     * Gets call startedAt timestamp.
+     *
+     * @since 1.0.0
+     */
+    startedAt: number;
+    /**
      * Gets call duration(ms).
      *
      * @since 1.0.0
@@ -334,7 +340,7 @@ export declare enum DirectCallEndResult {
     DECLINED = "DECLINED",
     /** The call is accepted on one of the callee’s other devices. All the other devices will receive this call result. **/
     OTHER_DEVICE_ACCEPTED = "OTHER_DEVICE_ACCEPTED",
-    /** SendBird server failed to establish a media session between the caller and callee within a specific period of time. **/
+    /** Sendbird server failed to establish a media session between the caller and callee within a specific period of time. **/
     TIMED_OUT = "TIMED_OUT",
     /** Data streaming from either the caller or the callee has stopped due to a WebRTC connection issue while calling. **/
     CONNECTION_LOST = "CONNECTION_LOST",

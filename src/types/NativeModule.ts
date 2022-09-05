@@ -1,7 +1,7 @@
 import type { NativeModule, TurboModule } from 'react-native';
 
 import { BridgedQuery } from '../libs/BridgedQuery';
-import type { CallOptions, DirectCallLog, DirectCallProperties } from './Call';
+import type { CallOptions, DirectCallLog, DirectCallProperties, SendbirdCallListener } from './Call';
 import type { AudioDevice, VideoDevice } from './Media';
 import { SoundType } from './Media';
 import {
@@ -13,7 +13,7 @@ import {
   RoomListQueryParams,
 } from './Query';
 import type { EnterParams, RoomParams, RoomProperties } from './Room';
-import type { User } from './User';
+import type { AuthenticateParams, User } from './User';
 import type { AsJSInterface, AsJSMediaDeviceControl } from './index';
 
 // --------------- Native interfaces ---------------
@@ -37,7 +37,7 @@ export interface NativeCommonModule {
   getDirectCall(callId: string): Promise<DirectCallProperties>;
 
   initialize(appId: string): boolean;
-  authenticate(userId: string, accessToken?: string | null): Promise<User>;
+  authenticate(authParams: AuthenticateParams): Promise<User>;
   deauthenticate(): Promise<void>;
   registerPushToken(token: string, unique?: boolean): Promise<void>;
   unregisterPushToken(token: string): Promise<void>;
@@ -137,7 +137,7 @@ type PlatformSpecificInterface = AsJSInterface<
 
 export interface SendbirdCallsJavascriptSpec extends PlatformSpecificInterface {
   /** Listeners **/
-  onRinging(listener: (props: DirectCallProperties) => void): void;
+  setListener(listener: SendbirdCallListener): void;
 
   /** Queries **/
   createDirectCallLogListQuery(

@@ -2,16 +2,17 @@ import { Platform } from 'react-native';
 
 import pkg from '../../package.json';
 import type {
+  AuthenticateParams,
   CallOptions,
   DirectCallLogQueryParams,
   DirectCallProperties,
   RoomListQueryParams,
   RoomParams,
+  SendbirdCallListener,
   SendbirdCallsJavascriptSpec,
   User,
 } from '../types';
-import { NativeConstants, NativeQueryType, RoomType, SoundType } from '../types';
-import { noop } from '../utils';
+import { NativeConstants, NativeQueryType, RoomState, RoomType, SoundType } from '../types';
 import { Logger } from '../utils/logger';
 import { DirectCallLogListQuery, RoomListQuery } from './BridgedQuery';
 import { DirectCall } from './DirectCall';
@@ -27,7 +28,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
   private _applicationId = '';
   private _initialized = false;
   private _currentUser: User | null = null;
-  private _onRinging: (props: DirectCallProperties) => void = noop;
+  private _sendbirdCallListener: SendbirdCallListener | null = null;
 
   /**
    * Returns current React-Native SDK version.
@@ -76,7 +77,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
 
   /**
    * Gets the current `User`.
-   * Returns the current `User`. If SendBirdCall is not authenticated, `null` will be returned.
+   * Returns the current `User`. If SendbirdCalls is not authenticated, `null` will be returned.
    *
    * @since 1.0.0
    */
@@ -92,6 +93,16 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
    */
   public get RoomType() {
     return RoomType;
+  }
+
+  /**
+   * An enum that represents state of a room.
+   * Returns {@link RoomState}
+   *
+   * @since 1.0.0
+   */
+  public get RoomState() {
+    return RoomState;
   }
 
   /**
@@ -143,7 +154,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
 
   /**
    * Gets the current `User` from native
-   * Returns the current `User`. If SendBirdCall is not authenticated, `null` will be returned.
+   * Returns the current `User`. If SendbirdCalls is not authenticated, `null` will be returned.
    *
    * @since 1.0.0
    */
@@ -189,7 +200,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
   };
 
   private _init = (appId: string) => {
-    this.Logger.debug('[SendbirdCalls]', 'initialize()');
+    this.Logger.info('[SendbirdCalls]', 'initialize()');
 
     DirectCall.poolRelease();
     Room.poolRelease();
@@ -197,8 +208,8 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
     if (!this.initialized) {
       this.binder.addListener(CallsEvent.DEFAULT, ({ type, data }) => {
         if (type === DefaultEventType.ON_RINGING) {
-          this.Logger.debug('[SendbirdCalls]', 'onRinging', data.callId);
-          this._onRinging(data);
+          this.Logger.info('[SendbirdCalls]', 'onRinging', data.callId);
+          this._sendbirdCallListener?.onRinging(data);
         }
       });
     }
@@ -214,8 +225,8 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
    *
    * @since 1.0.0
    */
-  public authenticate = async (userId: string, accessToken: string | null = null) => {
-    this._currentUser = await this.binder.nativeModule.authenticate(userId, accessToken);
+  public authenticate = async (authParams: AuthenticateParams) => {
+    this._currentUser = await this.binder.nativeModule.authenticate(authParams);
     return this.currentUser as User;
   };
 
@@ -342,7 +353,7 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
 
   /**
    * Handles Firebase message data.
-   * Returns true if SendBird call message. Otherwise false.
+   * Returns true if Sendbird call message. Otherwise false.
    *
    * @platform Android
    * @since 1.0.0
@@ -357,11 +368,13 @@ export default class SendbirdCallsModule implements SendbirdCallsJavascriptSpec 
   };
 
   /**
-   * Set onRinging listener
-   * A listener called when received dialing.
+   * Set SendbirdCall listener
+   *
+   * @since 1.0.0
    */
-  public onRinging(listener: (props: DirectCallProperties) => void) {
-    this._onRinging = listener;
+  setListener(listener: SendbirdCallListener): void {
+    this.Logger.info('[SendbirdCalls]', 'setListener');
+    this._sendbirdCallListener = listener;
   }
 
   /**

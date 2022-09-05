@@ -65,12 +65,17 @@ class CallsCommonModule(private val root: CallsModule): CommonModule {
         return SendBirdCall.init(root.reactContext, appId)
     }
 
-    override fun authenticate(userId: String, accessToken: String?, promise: Promise) {
-        Log.d(CallsModule.NAME, "[CommonModule] authenticate($userId, $accessToken)")
-        val authParams = AuthenticateParams(userId).apply {
+    override fun authenticate(authParams: ReadableMap, promise: Promise) {
+        Log.d(CallsModule.NAME, "[CommonModule] authenticate(${authParams.toHashMap()})")
+
+        val userId = authParams.getString("userId")!!
+        val accessToken = CallsUtils.safeGet { authParams.getString("accessToken") }
+
+        val authenticateParams = AuthenticateParams(userId).apply {
             setAccessToken(accessToken)
         }
-        SendBirdCall.authenticate(authParams) { user, error ->
+
+        SendBirdCall.authenticate(authenticateParams) { user, error ->
             error?.let {
                 promise.rejectCalls(it)
             }

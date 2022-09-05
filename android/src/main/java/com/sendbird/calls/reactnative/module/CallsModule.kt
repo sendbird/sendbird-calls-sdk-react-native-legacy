@@ -63,7 +63,7 @@ class CallsModule(val reactContext: ReactApplicationContext) : CallsModuleStruct
         SendBirdCall.addListener("sendbird.call.listener", this)
         return initialized
     }
-    override fun authenticate(userId: String, accessToken: String?, promise: Promise) = commonModule.authenticate(userId, accessToken, promise)
+    override fun authenticate(authParams: ReadableMap, promise: Promise) = commonModule.authenticate(authParams, promise)
     override fun deauthenticate(promise: Promise) = commonModule.deauthenticate(promise)
     override fun registerPushToken(token: String, unique: Boolean, promise: Promise) = commonModule.registerPushToken(token, unique, promise)
     override fun unregisterPushToken(token: String, promise: Promise) = commonModule.unregisterPushToken(token, promise)

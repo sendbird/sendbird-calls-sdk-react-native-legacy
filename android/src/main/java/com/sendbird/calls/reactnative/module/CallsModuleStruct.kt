@@ -16,7 +16,7 @@ interface CommonModule {
 
     fun initialize(appId: String): Boolean
 
-    fun authenticate(userId: String, accessToken: String?, promise: Promise)
+    fun authenticate(authParams: ReadableMap, promise: Promise)
     fun deauthenticate(promise: Promise)
 
     fun registerPushToken(token: String, unique: Boolean, promise: Promise)
