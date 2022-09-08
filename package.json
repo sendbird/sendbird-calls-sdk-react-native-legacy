@@ -29,6 +29,7 @@
     "typescript": "tsc --noEmit",
     "build": "bob build",
     "clean": "del lib",
+    "release": "release-it",
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "fix": "yarn fix:eslint && yarn fix:prettier",
     "lint:eslint": "eslint src --ext ts,tsx -c ./.eslintrc.js",
@@ -52,13 +53,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^11.0.0",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@release-it/conventional-changelog": "^2.0.0",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/jest": "^26.0.0",
     "@types/react": "^18.0.12",
     "@types/react-native": "^0.67.8",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",
+    "commitlint": "^11.0.0",
     "del-cli": "^4.0.1",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^7.0.0",
@@ -69,6 +73,7 @@
     "react": "17.0.2",
     "react-native": "0.68.2",
     "react-native-builder-bob": "^0.18.2",
+    "release-it": "^14.2.2",
     "typedoc": "^0.22.16",
     "typescript": "4.6.3",
     "metro-react-native-babel-preset": "^0.67.0"
@@ -82,6 +87,30 @@
     "modulePathIgnorePatterns": [
       "<rootDir>/lib/"
     ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}",
+      "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+    },
+    "npm": {
+      "publish": true
+    },
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular",
+        "infile": "CHANGELOG.md"
+      }
+    }
   },
   "react-native-builder-bob": {
     "source": "src",
