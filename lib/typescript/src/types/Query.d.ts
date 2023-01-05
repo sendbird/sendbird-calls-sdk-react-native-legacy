@@ -27,7 +27,7 @@ export declare type RoomListQueryParams = {
     createdAt?: Range;
     currentParticipantCount?: Range;
 };
-declare type Range = {
+export declare type Range = {
     upperBound?: number;
     lowerBound?: number;
 };
@@ -35,4 +35,3 @@ export declare type NativeQueryResult<T> = Promise<{
     hasNext: boolean;
     result: T[];
 }>;
-export {};

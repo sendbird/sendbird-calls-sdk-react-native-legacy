@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/sendbird/sendbird-calls-react-native/compare/v1.0.0...v1.0.1) (2023-01-05)
+
+
+### Bug Fixes
+
+* resolve package.json path in compiled JS files ([5964180](https://github.com/sendbird/sendbird-calls-react-native/commit/5964180cd8e528e4e59623f062a29b46d7d64f62))
+
 # [1.0.0](https://github.com/sendbird/sendbird-calls-react-native/compare/v1.0.0-rc.1...v1.0.0) (2022-09-08)
 
 # [1.0.0-rc.1](https://github.com/sendbird/sendbird-calls-react-native/compare/1.0.0-rc.0...v1.0.0-rc.1) (2022-09-08)
