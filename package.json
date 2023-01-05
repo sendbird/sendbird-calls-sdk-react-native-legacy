@@ -27,7 +27,7 @@
     "test:build": "yarn build && yarn clean",
     "test:tsc": "tsc --noEmit",
     "typescript": "tsc --noEmit",
-    "build": "bob build",
+    "build": "bob build && cp package.json lib/package.json",
     "clean": "del lib",
     "release": "release-it",
     "lint": "yarn lint:eslint && yarn lint:prettier",
