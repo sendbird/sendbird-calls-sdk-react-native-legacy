@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm,swift}"
 
   s.dependency "React-Core"
-  s.dependency "SendBirdCalls", "1.9.5"
+  s.dependency "SendBirdCalls", "1.9.7"
 
 #   if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then
 #       s.compiler_flags = folly_compiler_flags + " -DRCT_NEW_ARCH_ENABLED=1"

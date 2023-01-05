@@ -91,7 +91,7 @@ dependencies {
   // noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:${ReactNative.ext.getVersion("android", "kotlin")}"
-  implementation("com.sendbird.sdk:sendbird-calls:1.9.1")
+  implementation("com.sendbird.sdk:sendbird-calls:1.10.0")
 }
 
 
