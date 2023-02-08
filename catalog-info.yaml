@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sendbird-calls-sdk-react-native
+  description: Calls SDK for React-Native (for release)
+  annotations:
+    github.com/project-slug: sendbird-calls-sdk-react-native
+spec:
+  type: library
+  lifecycle: production
+  owner: team-calls
+  system: sendbird-calls
