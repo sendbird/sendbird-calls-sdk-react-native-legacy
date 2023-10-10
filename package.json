@@ -1,7 +1,7 @@
 {
   "name": "@sendbird/calls-react-native",
   "version": "1.0.2",
-  "description": "ReactNative Calls SDK",
+  "description": "Sendbird Calls SDK for React Native: Empower React Native apps with seamless audio, video, and group calling. Build interactive communication easily.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -39,16 +39,29 @@
   },
   "keywords": [
     "react-native",
-    "ios",
-    "android"
+    "calls",
+    "audio-calls",
+    "video-calls",
+    "group-calls",
+    "voice-calls",
+    "conference-calls",
+    "communication",
+    "video-chat",
+    "real-time",
+    "webrtc",
+    "voip",
+    "call-kit",
+    "react-native-webrtc",
+    "react-native-callkeep",
+    "react-native-voip-push-notification"
   ],
-  "repository": "https://github.com/sendbird/sendbird-calls-react-native.git",
+  "repository": "https://github.com/sendbird/sendbird-calls-sdk-react-native.git",
   "author": "Sendbird <support@sendbird.com> (https://sendbird.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sendbird/sendbird-calls-react-native.git/issues"
+    "url": "https://github.com/sendbird/sendbird-calls-sdk-react-native.git/issues"
   },
-  "homepage": "https://github.com/sendbird/sendbird-calls-react-native.git#readme",
+  "homepage": "https://github.com/sendbird/sendbird-calls-sdk-react-native.git#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
@@ -101,7 +114,7 @@
       "changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
     },
     "npm": {
-      "publish": true
+      "publish": false
     },
     "github": {
       "release": true
